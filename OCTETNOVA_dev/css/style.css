@@ -1,0 +1,2702 @@
+/*
+    Nom du fichier : style.css
+    Description : Feuille de style principale gérant l'identité visuelle, les thèmes, les animations et le responsive design du site OctetNova.
+
+    ====================================================================================
+    L'intégralité des fichiers des ci-contre et suivants répertoires sont la propriété
+    exclusive d'OctetNova. Toute copie, modification, diffusion ou reproduction,
+    totale ou partielle, est strictement interdite sans l'accord écrit préalable
+    d'OctetNova. Merci de respecter le travail des développeurs.
+    =====================================================================================
+    Ce projet est distribué sous licence Creative Commons Attribution - Non Commercial -
+    No Derivatives 4.0 International (CC BY-NC-ND 4.0).
+    Vous êtes autorisé à partager ce travail à condition de créditer l'auteur, sans
+    utilisation commerciale et sans aucune modification.
+    ====================================================================================
+    Contact : contact@octetnova.fr
+    Site officiel : https://www.octetnova.fr
+    -------------------------------------------------------------------------------------
+    © 2020 - 2025 OctetNova. Tous droits réservés.
+    Licence : Propriétaire – Utilisation restreinte.
+    -------------------------------------------------------------------------------------
+    Auteur : OctetNova — Lilian Martin
+    Version : 8.5.2
+    Date : 20/11/2025
+    ====================================================================================
+
+    Pour modifier le code :
+
+    - Demander et obtenir au préalable l'accord du-des propriétaire(s)/auteur(s) : OctetNova - Lilian MARTIN (contact: contact@octetnova.fr ET lilian.martin67@outlook.fr).
+    - Lire et comprendre l'intégralité du code étudié ainsi que son fonctionnement.
+    - Créer une copie (backup) intégrale du dossier parent principal original répertoriant l'intégralité des ressources utiles au bon fonctionnement du site avant toute modification.
+    - Renommer votre copie sous la forme : "OctetNova_V*.. " (* représentant un nombre quelconque suivant le numéro de version).
+    - Modifier les entêtes de l'intégralité des fichiers (html5, css3, js).
+    - Commenter votre code.
+    - Respecter l'intégrité du site.
+    - L'usage de l'intelligence artificielle est autorisée.
+    - Traduire chaque contenu rajouté à l'aide des propriétées de balise html "data-i18n" ainsi que les parties dédiées dans le fichier javascript (js).
+    - Verifier les proprétés de style attribuées à chaque nouveau contenu dans le fichier css. L'utilisation de variables dependantes du thème selectionné par l'utilsateur est fortement recommendé.
+    - Tester les differents paramètres (footer) ainsi que la responsivité du site. Vous pouvez utiliser l'extension "Responsive Viewer" (https://bit.ly/4hhZnxS).
+*/
+
+/* ========== 1. IMPORTS & VARIABLES GLOBALES ========== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /*? Defaut/Simple*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); /*? Futuristic/tech*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); /*? Eleguant/simple*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'); /*? Eleguant/simple*/
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap'); /*? dyslexic1*/
+@import url('https://cdn.jsdelivr.net/npm/opendyslexic@0.1.0/dist/opendyslexic.css'); /*? dyslexic2*/
+
+:root {
+    /* Transitions */
+    --transition: 0.3s ease-in-out;
+    --transition-fast: 0.2s ease-out;
+    --transition-main: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Couleurs de fond */
+    --color-dark-bg-solid: #03040B;
+    --color-dark-bg-image: none;
+    --color-light-bg-solid: #F5F4F0;
+    --color-light-bg-image: none;
+    --color-bw-bg-solid: #FFFFFF;
+    --color-bw-bg-image: none;
+    --color-blue-bg-solid: #0A111F;
+    --color-blue-bg-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUkMAAAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRUMJEdwzCSJM0CgPDoCgU3fG/56flvLhZ1tqx548m1hI/rJr8VfWbplfxVE2vpms1vbrm0zV9u6b3Nf1zPb4g1yJdy3Wt1/c8DgaTgy5vYHY2wkt9083BAAAAAElFTSuQmCC');
+    
+    /* Variables pour le thème sombre */
+    --color-dark-text: #8E96A4;
+    --color-dark-text-herotitle: #FFFFFF;
+    --color-dark-zone-bg: transparent;
+    --color-dark-figure-bg: rgba(12, 15, 20, 0.7);
+    --figure-border-color-dark: #332D4C;
+    --color-dark-hovershadow: 0 0 35px -8px #00A1FF;
+    --accent-dark-hover: #00A1FF;
+    --accent-dark-currentLink: #14699a;
+    --color-dark-nav: rgba(3, 4, 11, 0.5);
+    --color-dark-nav-hovertext: #FFFFFF;
+    --form-bg-dark: rgba(18, 24, 41, 0.5);
+    --form-input-bg-dark: #03040B;
+    --form-input-text-dark: #A0A8B7;
+    
+    /* Variables pour le thème clair */
+    --color-light-text: #4F4B45;
+    --color-light-text-herotitle: #272320;
+    --color-light-zone-bg: #FFFFFF;
+    --color-light-figure-bg: rgb(228, 235, 227);
+    --figure-border-color-light: #d8d4ca;
+    --color-light-hovershadow: 0 15px 30px -10px rgba(79, 75, 69, 0.3);
+    --accent-light-hover: #3E8A57;
+    --accent-light-currentLink: #4d6b57;
+    --color-light-nav: rgba(245, 244, 240, 0.5);
+    --color-light-nav-hovertext: #FFFFFF;
+    --form-bg-light: #FFFFFF;
+    --form-input-bg-light: #EAE8E1;
+    --form-input-text-light: #3D3934;
+    
+    /* Variables pour le thème bleu */
+    --color-blue-text: #9FB1CC;
+    --color-blue-text-herotitle: #FFFFFF;
+    --color-blue-zone-bg: transparent;
+    --color-blue-figure-bg: #10182C;
+    --figure-border-color-blue: rgba(45, 93, 153, 0.3);
+    --color-blue-hovershadow: 0 0 30px -5px #D62B75;
+    --accent-blue-hover: #D62B75;
+    --accent-blue-currentLink: #bc5e87;
+    --color-blue-nav: rgba(10, 17, 31, 0.5);
+    --color-blue-nav-hovertext: #000;
+    --form-bg-blue: rgba(20, 30, 53, 0.5);
+    --form-input-bg-blue: #0A111F;
+    --form-input-text-blue: #C2D1E8;
+    
+    /* Variables pour le thème noir et blanc */
+    --color-bw-text: #555555;
+    --color-bw-text-herotitle: #000000;
+    --color-bw-zone-bg: #efefef;
+    --color-bw-figure-bg: #f9f9f9;
+    --figure-border-color-bw: #ccc;
+    --color-bw-hovershadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+    --accent-bw-hover: #000000;
+    --accent-bw-currentLink: #4c2f2f;
+    --color-bw-nav: rgba(255, 255, 255, 0.5);
+    --color-bw-nav-hovertext: #FFFFFF;
+    --form-bg-bw: #FFFFFF;
+    --form-input-bg-bw: #E9E9E9;
+    --form-input-text-bw: #212121;
+    
+    /* Dégradés */
+    --gradient-dark: linear-gradient(135deg, #00A1FF, #0A111F 40%, #00A1FF);
+    --gradient-light: linear-gradient(135deg, #6ee7b7, #3E8A57);
+    --gradient-blue: linear-gradient(135deg, #D62B75, #03040B 40%, #D62B75);
+    --gradient-bw: linear-gradient(135deg, #999999, #000000);
+    
+    /* Effets visuels */
+    --overlay-opacity-value: 70%;
+    --overlay-brightness-value: 0.8;
+    --currentLink-brightness-value: brightness(0.9);
+}
+
+/* ========== 2. STYLES DE BASE & GESTION DES THÈMES ========== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    transition: background-color var(--transition-fast), color var(--transition-fast); 
+    max-width: 100vw; 
+    overflow-x: hidden; 
+}
+
+main { 
+    flex: 1 0 auto; 
+}
+
+::selection { 
+    background-color: var(--current-accent-hover); 
+    color: #fff !important; 
+}
+
+a { 
+    color: inherit; 
+    text-decoration: none; 
+}
+
+p, li { 
+    cursor: default; 
+}
+
+abbr { 
+    text-decoration: none; 
+    cursor: pointer; 
+}
+
+main a:hover, 
+header a:hover, 
+button, 
+.game-item figure, 
+.gallery-item { 
+    cursor: pointer; 
+}
+
+/* Gestion des polices selon les thèmes */
+body.roboto { font-family: 'Roboto', sans-serif; }
+body.elegant { font-family: 'Montserrat', sans-serif; }
+body.tech { font-family: 'Roboto', sans-serif; }
+body.tech h1, 
+body.tech h2, 
+body.tech h3, 
+body.tech h4, 
+body.tech h5, 
+body.tech h6 { 
+    font-family: 'Orbitron', sans-serif; 
+}
+body.dyslexic1 { font-family: "Lexend", sans-serif; }
+body.dyslexic2 { font-family: 'OpenDyslexic', sans-serif; }
+
+/* Configuration des scrollbars par thème */
+html.dark {
+    --scrollbar-track-color: var(--color-dark-bg-solid) 80%;
+    --scrollbar-thumb-color: var(--accent-dark-hover);
+    --scrollbar-thumb-hover-color: var(--accent-dark-hover);
+}
+html.light {
+    --scrollbar-track-color: var(--color-light-bg-solid) 80%;
+    --scrollbar-thumb-color: var(--accent-light-hover);
+    --scrollbar-thumb-hover-color: var(--accent-light-hover);
+}
+html.blue {
+    --scrollbar-track-color: var(--color-blue-bg-solid);
+    --scrollbar-thumb-color: var(--accent-blue-hover);
+    --scrollbar-thumb-hover-color: var(--accent-blue-hover);
+}
+html.bw {
+    --scrollbar-track-color: var(--color-bw-bg-solid) 80%;
+    --scrollbar-thumb-color: var(--accent-bw-hover);
+    --scrollbar-thumb-hover-color: var(--accent-bw-hover);
+}
+
+/* Application des variables de thème */
+body.dark {
+    --current-bg-solid: var(--color-dark-bg-solid);
+    --current-bg-image: var(--color-dark-bg-image);
+    --current-text: var(--color-dark-text);
+    --current-text-herotitle: var(--color-dark-text-herotitle);
+    --current-zone-bg: var(--color-dark-zone-bg);
+    --current-figure-bg: var(--color-dark-figure-bg);
+    --current-figure-border: var(--figure-border-color-dark);
+    --current-hovershadow: var(--color-dark-hovershadow);
+    --current-accent-hover: var(--accent-dark-hover);
+    --current-accent-currentLink: var(--accent-dark-currentLink);
+    --current-nav: var(--color-dark-nav);
+    --current-nav-hovertext: var(--color-dark-nav-hovertext);
+    --current-border-gradient: var(--gradient-dark);
+    --current-form-bg: var(--form-bg-dark);
+    --current-form-input-bg: var(--form-input-bg-dark);
+    --current-form-input-text: var(--form-input-text-dark);
+}
+
+body.light {
+    --current-bg-solid: var(--color-light-bg-solid);
+    --current-bg-image: var(--color-light-bg-image);
+    --current-text: var(--color-light-text);
+    --current-text-herotitle: var(--color-light-text-herotitle);
+    --current-zone-bg: var(--color-light-zone-bg);
+    --current-figure-bg: var(--color-light-figure-bg);
+    --current-figure-border: var(--figure-border-color-light);
+    --current-hovershadow: var(--color-light-hovershadow);
+    --current-accent-hover: var(--accent-light-hover);
+    --current-accent-currentLink: var(--accent-light-currentLink);
+    --current-nav: var(--color-light-nav);
+    --current-nav-hovertext: var(--color-light-nav-hovertext);
+    --current-border-gradient: var(--gradient-light);
+    --current-form-bg: var(--form-bg-light);
+    --current-form-input-bg: var(--form-input-bg-light);
+    --current-form-input-text: var(--form-input-text-light);
+}
+
+body.blue {
+    --current-bg-solid: var(--color-blue-bg-solid);
+    --current-bg-image: var(--color-blue-bg-image);
+    --current-text: var(--color-blue-text);
+    --current-text-herotitle: var(--color-blue-text-herotitle);
+    --current-zone-bg: var(--color-blue-zone-bg);
+    --current-figure-bg: var(--color-blue-figure-bg);
+    --current-figure-border: var(--figure-border-color-blue);
+    --current-hovershadow: var(--color-blue-hovershadow);
+    --current-accent-hover: var(--accent-blue-hover);
+    --current-accent-currentLink: var(--accent-blue-currentLink);
+    --current-nav: var(--color-blue-nav);
+    --current-nav-hovertext: var(--color-blue-nav-hovertext);
+    --current-border-gradient: var(--gradient-blue);
+    --current-form-bg: var(--form-bg-blue);
+    --current-form-input-bg: var(--form-input-bg-blue);
+    --current-form-input-text: var(--form-input-text-blue);
+}
+
+body.bw {
+    --current-bg-solid: var(--color-bw-bg-solid);
+    --current-bg-image: var(--color-bw-bg-image);
+    --current-text: var(--color-bw-text);
+    --current-text-herotitle: var(--color-bw-text-herotitle);
+    --current-zone-bg: var(--color-bw-zone-bg);
+    --current-figure-bg: var(--color-bw-figure-bg);
+    --current-figure-border: var(--figure-border-color-bw);
+    --current-hovershadow: var(--color-bw-hovershadow);
+    --current-accent-hover: var(--accent-bw-hover);
+    --current-accent-currentLink: var(--accent-bw-currentLink);
+    --current-nav: var(--color-bw-nav);
+    --current-nav-hovertext: var(--color-bw-nav-hovertext);
+    --current-border-gradient: var(--gradient-bw);
+    --current-form-bg: var(--form-bg-bw);
+    --current-form-input-bg: var(--form-input-bg-bw);
+    --current-form-input-text: var(--form-input-text-bw);
+}
+
+body { 
+    background-color: var(--current-bg-solid); 
+    background-image: var(--current-bg-image); 
+    color: var(--current-text); 
+}
+
+/* ========== 3. HEADER & NAVIGATION ========== */
+header { 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    transition: transform 0.4s ease-in-out; 
+}
+
+.header-hidden { 
+    transform: translateY(-100%); 
+}
+
+#main_nav { 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    padding: 0 2%; 
+    margin: auto; 
+    background-color: var(--current-nav); 
+    backdrop-filter: blur(12px) saturate(150%); 
+    -webkit-backdrop-filter: blur(12px) saturate(150%); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+#main_logo h1 { 
+    font-size: 1.8rem; 
+    text-transform: uppercase; 
+}
+
+#main_logo_tm { 
+    font-size: 0.8rem; 
+    vertical-align: super; 
+    margin-left: -0.5rem; 
+    color: var(--current-accent-hover); 
+    filter: brightness(0.7);
+}
+
+#main_nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 2rem; 
+    margin-inline-start: auto;
+}
+
+#main_nav li { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 12vh; 
+    transition: all var(--transition);
+}
+
+#main_nav li a {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 0.5rem 1rem; 
+    transition: all var(--transition); 
+    border: none; 
+    border-radius: 0px; 
+}
+
+#main_nav li a:hover {  
+    color: var(--current-accent-hover); 
+    text-decoration: none; 
+    border: none; 
+    border-radius: 0px;
+}
+
+#main_nav li:has(> a:hover) {
+    box-shadow: 0px 3px 0px 0px var(--current-accent-hover); 
+    transition: all var(--transition);
+}
+
+#main_nav li:has(> a.current-page) {
+    box-shadow: 0px 3px 0px 0px var(--current-accent-currentLink); 
+    filter: var(--currentLink-brightness-value);
+}
+
+#main_nav li a.current-page {
+    color: var(--current-accent-currentLink); 
+    filter: var(--currentLink-brightness-value);
+}
+
+.icon-home { 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end;
+}
+
+.icon-home:hover { 
+    color: var(--current-accent-hover) !important; 
+    background-color: transparent !important; 
+    border: transparent !important; 
+    filter: brightness(1.3) !important;
+}
+
+/* ========== 4. SYSTÈME DE CARTES UNIVERSEL ========== */
+.card-style { 
+    position: relative; 
+    border-radius: 24px 4px; 
+    background: transparent; 
+    transition: transform var(--transition-main), box-shadow var(--transition-main), filter var(--transition-main); 
+    z-index: 1; 
+    background-color: var(--current-figure-bg);
+}
+
+.card-style::before { 
+    content: ''; 
+    position: absolute; 
+    inset: 0; 
+    border-radius: inherit; 
+    padding: 5px; 
+    background: var(--current-border-gradient); 
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+    -webkit-mask-composite: xor; 
+    mask-composite: exclude; 
+    z-index: -2; 
+    opacity: 0; 
+    transition: opacity var(--transition-main); 
+}
+
+.card-style::after { 
+    content: ''; 
+    position: absolute; 
+    inset: 5px; 
+    border-radius: 19px 0px; 
+    border: 2px solid var(--current-figure-border); 
+    background-color: var(--current-figure-bg); 
+    transition: background-color var(--transition-main), border-color var(--transition-main); 
+    z-index: -1; 
+}
+
+.card-style:not(.non-interactive):hover { 
+    box-shadow: var(--current-hovershadow);
+    filter: brightness(1.01);
+}
+
+.card-style:not(.non-interactive):hover::before { 
+    opacity: 1; 
+}
+
+.card-style:not(.non-interactive):hover::after { 
+    border-color: transparent; 
+}
+
+.images_contact .card-style::after, 
+.images_info .card-style::after, 
+.images_about .card-style::after { 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+}
+
+/* ========== 5. STYLES DES PAGES & SECTIONS GÉNÉRALES ========== */
+.hero { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 10vh; 
+    padding-bottom: 10vh; 
+    height: 100vh; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    background-position: center; 
+}
+
+/* Backgrounds des héros selon les thèmes */
+body.dark .hero { 
+    background-image: radial-gradient(circle, rgba(3,4,11,0.5) 0%, rgba(3,4,11,1) 70%), url('../img/bg/space_bg_black.jpg'); 
+}
+body.light .hero { 
+    background-image: radial-gradient(circle, rgba(245,244,240,0.5) 0%, rgba(245,244,240,1) 70%), url('../img/bg/space_bg_white.jpg'); 
+}
+body.blue .hero { 
+    background-image: radial-gradient(circle, rgba(10,17,31,0.5) 0%, rgba(10,17,31,1) 70%), url('../img/bg/space_bg_blue.jpg'); 
+}
+body.bw .hero { 
+    background-image: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 70%), url('../img/bg/space_bg_bw.jpg'); 
+}
+
+/* Support WebP moderne */
+html.webp body.dark .hero { 
+    background-image: radial-gradient(circle, rgba(3,4,11,0.5) 0%, rgba(3,4,11,1) 70%), url('../img/bg/space_bg_black.webp'); 
+}
+html.webp body.light .hero { 
+    background-image: radial-gradient(circle, rgba(245,244,240,0.5) 0%, rgba(245,244,240,1) 70%), url('../img/bg/space_bg_white.webp'); 
+}
+html.webp body.blue .hero { 
+    background-image: radial-gradient(circle, rgba(10,17,31,0.5) 0%, rgba(10,17,31,1) 70%), url('../img/bg/space_bg_blue.webp'); 
+}
+html.webp body.bw .hero { 
+    background-image: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 70%), url('../img/bg/space_bg_bw.webp'); 
+}
+
+.hero .hero_logos { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 80vh; 
+    width: 100vw; 
+}
+
+.hero .iconetitre #logo-hero { 
+    width: 15vw; 
+    height: auto; 
+    color: var(--current-text-herotitle); 
+}
+
+.hero .hero_space { 
+    height: 5vh; 
+    width: 100vw; 
+}
+
+.hero #hero-title { 
+    display: flex; 
+    font-size: 3rem; 
+    color: var(--current-text-herotitle); 
+    text-transform: uppercase; 
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Indicateur de scroll amélioré */
+.toBottom_section {
+    display: flex;
+    justify-content: center;
+    margin-top: 15vh;
+    background-color: color-mix(in srgb, var(--current-accent-currentLink) 10%, transparent);
+    transition: margin-top 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+#scroll-down-indicator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 1rem 0rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    gap: auto;
+    margin: 0 auto;
+    font-family: inherit;
+    transition: all var(--transition), opacity 0.4s ease;
+    width: 100vw;
+    min-width: 180px;
+    height: auto;
+    min-height: 60px;
+    background-color: transparent;
+    color: var(--current-text);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+}
+
+#scroll-down-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--current-accent-hover), transparent);
+    transition: left 0.5s, opacity 0.3s ease;
+    opacity: 1;
+}
+
+#scroll-down-indicator.hidden::before {
+    opacity: 0 !important;
+}
+
+#scroll-down-indicator:hover::before {
+    left: 100%;
+    border-radius: 0;
+    width: 200%;
+}
+
+#scroll-down-indicator .arrow_down {
+    transition: transform 0.3s ease;
+    color: var(--current-accent-currentLink);
+    width: 5vw; 
+    height: auto;
+}
+
+#scroll-down-indicator:hover {
+    background-color: var(--current-accent-hover);
+    color: #FFFFFF;
+    border-color: var(--current-accent-hover);
+    box-shadow: 0 5px 20px var(--current-accent-hover);
+    transform: translateY(-3px);
+}
+
+#scroll-down-indicator:hover .arrow_down {
+    transform: translateY(3px);
+    color: #FFFFFF;
+}
+
+#scroll-down-indicator:hover ~ .toBottom_section,
+.scroll-indicator-hovered .toBottom_section {
+    margin-top: -5vh;
+}
+
+/* Animation de rebond pour les flèches */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+.arrow_down {
+    animation: bounce 2s infinite;
+    animation-delay: 1s;
+}
+
+/* Sections de contenu principales */
+.games-container, 
+.info-container, 
+.contact-container, 
+.about-container { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: center; 
+    align-items: center; 
+    padding: 6rem 2rem; 
+    margin-bottom: 5vw; 
+    background: var(--current-zone-bg); 
+}
+
+.games-title, 
+.info-title, 
+.contact-title, 
+.about-title { 
+    font-size: 2.5rem; 
+    margin-bottom: 2vh; 
+    text-transform: uppercase; 
+    color: var(--current-text-herotitle); 
+}
+
+.games-intro, 
+.info-intro, 
+.contact-intro, 
+.about-intro { 
+    line-height: 1.6; 
+    width: 40vw; 
+    margin: 5vh auto; 
+}
+
+.jeux { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: center; 
+    align-items: center; 
+    gap: 2rem; 
+    margin-top: 5rem; 
+    width: 100%; 
+}
+
+.jeux .game-item { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: stretch; 
+    gap: 2rem; 
+    margin-bottom: 2rem; 
+    max-height: 80vh; 
+    height: 50vh; 
+    width: fit-content; 
+    padding: 1.5rem; 
+    overflow: hidden; 
+}
+
+.jeux .game-item figure { 
+    position: relative; 
+    overflow: hidden; 
+    display: flex; 
+    border-radius: 24px 4px; 
+    flex-shrink: 0; 
+    flex-basis: 60%; 
+    max-width: 40vw; 
+    min-width: 3vw; 
+    width: 20vw;
+}
+
+.jeux .game-item figure picture,
+figure.card-style picture { 
+    display: block; 
+    width: 100%; 
+    height: 100%;
+}
+
+.jeux .game-item figure img, 
+.jeux .game-item figure picture img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: inherit; 
+    transition: transform 0.4s ease-out; 
+}
+
+.jeux .game-item .game-description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+    flex: 1 1 0;
+    min-width: 20vw;
+    max-width: 28vw;
+    margin-right: 10vh;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 40px), transparent 100%);
+    mask-image: linear-gradient(to bottom, black calc(100% - 40px), transparent 100%);
+    scrollbar-width: thin;
+    scrollbar-color: var(--current-accent-hover) transparent;
+}
+
+.jeux .game-item .game-description p {
+    font-size: 0.75rem;
+}
+
+.jeux .game-item .game-description h2 {
+    margin-bottom: 3.5rem;
+    font-size: 1.3rem;
+}
+
+.jeux .image-overlay { 
+    position: absolute; 
+    inset: 0; 
+    padding: 1rem; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    background: color-mix(in srgb, var(--current-accent-hover) var(--overlay-opacity-value), transparent);
+    filter: brightness(var(--overlay-brightness-value));
+    backdrop-filter: blur(12px) saturate(150%); 
+    -webkit-backdrop-filter: blur(12px) saturate(150%); 
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+    border-radius: 24px 4px; 
+}
+
+.overlay-play-button { 
+    filter: brightness(calc(10 + var(--overlay-brightness-value)));
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    color: white; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    opacity: 0; 
+    transform: translateY(10px); 
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out; 
+}
+
+.play-icon { 
+    width: 60px; 
+    height: 60px; 
+    fill: white; 
+    margin-bottom: 0.5rem; 
+    transition: transform 0.3s ease; 
+}
+
+.overlay-play-button:hover .play-icon { 
+    transform: scale(1.5); 
+}
+
+.overlay-more-button { 
+    margin-top: 1.5rem; 
+    padding: 0.5rem 1.2rem; 
+    border: 1px solid rgba(255, 255, 255, 0.7); 
+    color: rgba(255, 255, 255, 0.9); 
+    font-size: 0.9rem; 
+    background-color: transparent; 
+    opacity: 0; 
+    transform: translateY(10px); 
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out, background-color 0.3s, color 0.3s; 
+    border-radius: 50px; 
+}
+
+.overlay-more-button:hover { 
+    background-color: white; 
+    color: #03040B; 
+}
+
+.jeux .game-item figure:hover img, 
+.jeux .game-item figure:hover picture img { 
+    transform: scale(1.2); 
+}
+
+.jeux .game-item figure:hover .image-overlay { 
+    opacity: 1; 
+}
+
+.jeux .game-item figure:hover .overlay-play-button, 
+.jeux .game-item figure:hover .overlay-more-button { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.images_info figcaption, 
+.images_contact figcaption, 
+.images_about figcaption { 
+    color: var(--current-text); 
+}
+
+.images_contact, 
+.images_info, 
+.images_about { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 2rem; 
+    margin-top: 5rem; 
+}
+
+figure.card-style { 
+    padding: 1.2rem; 
+    width: 25%;
+}
+
+figure.card-style img, 
+figure.card-style picture img { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 12px 2px; 
+    object-fit: cover; 
+}
+
+figure.card-style figcaption { 
+    margin-top: 1.5rem;
+}
+
+figure:hover { 
+    transition: transform 0.3s ease;
+}
+
+figure.card-style { 
+    position: relative; 
+    overflow: hidden;
+}
+
+figure.card-style img, 
+figure.card-style picture img { 
+    transition: transform 0.4s ease-out; 
+    width: 100%; 
+    display: block; 
+}
+
+figure.card-style:not(.non-interactive):hover img, 
+figure.card-style:not(.non-interactive):hover picture img { 
+    transform: scale(1.1); 
+}
+
+figure.card-style::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: color-mix(in srgb, var(--current-accent-hover) 70%, transparent);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    border-radius: inherit; 
+    pointer-events: none;
+}
+
+figure.card-style:not(.non-interactive):hover::after { 
+    opacity: 1; 
+}
+
+.overlay-button {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    z-index: 2;
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 12px 2px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 20px));
+    transition: opacity var(--transition), transform var(--transition), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    z-index: 2;
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 2px 12px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity none, transform none, background-color none, color none;
+}
+
+figure.card-style:not(.non-interactive):hover .overlay-button, 
+figure.card-style:not(.non-interactive):hover .overlay-text {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.overlay-button:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #03040B;
+    border-color: transparent;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* ========== 6. STYLES SPÉCIFIQUES À LA PAGE DE JEU ========== */
+@keyframes ken-burns { 
+    0% { transform: scale(1.1); } 
+    100% { transform: scale(1.2); } 
+}
+
+.game-hero-carousel { 
+    height: 85vh; 
+    min-height: 600px; 
+    width: 100%; 
+    overflow: hidden; 
+    position: relative; 
+    box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5); 
+}
+
+.game-hero-carousel .list, 
+.game-hero-carousel .item { 
+    height: 100%; 
+    width: 100%; 
+    position: absolute; 
+    inset: 0; 
+}
+
+.game-hero-carousel .item::before { 
+    content: ''; 
+    position: absolute; 
+    inset: 0; 
+    background-image: var(--bg-image); 
+    background-size: cover; 
+    background-position: center; 
+    animation: ken-burns 20s ease-in-out infinite alternate; 
+    z-index: 1; 
+}
+
+.game-hero-carousel .item::after { 
+    content: ''; 
+    position: absolute; 
+    inset: 0; 
+    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0) 60%); 
+    z-index: 2; 
+}
+
+.game-hero-carousel .content { 
+    position: absolute; 
+    top: 50%; 
+    left: 100px; 
+    transform: translateY(-50%); 
+    width: 600px; 
+    max-width: 80%; 
+    color: #fff; 
+    z-index: 3; 
+}
+
+.game-hero-carousel .content .title { 
+    font-size: 5rem; 
+    color: var(--current-accent-hover); 
+    font-weight: bold; 
+}
+
+.game-hero-carousel .content .name { 
+    font-size: 5rem; 
+    font-weight: bold; 
+}
+
+.game-hero-carousel .content .des { 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    margin: 20px 0 30px 5px; 
+}
+
+.game-content-section { 
+    padding: 6rem 2rem; 
+    background: var(--current-zone-bg); 
+}
+
+.section-title { 
+    color: var(--current-text-herotitle); 
+    font-size: 2.5rem; 
+    text-transform: uppercase; 
+    text-align: center; 
+    margin-bottom: 4rem; 
+}
+
+.intro-card { 
+    width: 60%; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 3rem; 
+    text-align: justify; 
+    line-height: 1.7; 
+}
+
+.intro-card p:not(:last-child) { 
+    margin-bottom: 1.5rem; 
+}
+
+.features-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.feature-card { 
+    text-align: center; 
+    padding: 2.5rem 2rem; 
+}
+
+.feature-card h3 { 
+    color: var(--current-text-herotitle); 
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
+}
+
+.feature-icon { 
+    width: 60px; 
+    height: 60px; 
+    margin-bottom: 1.5rem; 
+    color: var(--current-accent-hover); 
+}
+
+.gallery-container { 
+    padding: 1.7rem; 
+    position: relative; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    max-height: 600px; 
+    overflow: hidden; 
+    transition: max-height 0.8s ease-in-out; 
+}
+
+.gallery-container.is-expanded { 
+    max-height: 2000px; 
+}
+
+.gallery-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 1.5rem; 
+}
+
+.gallery-item { 
+    border-radius: 12px 2px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); 
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.gallery-item img, 
+.gallery-item picture img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+}
+
+.gallery-item:hover { 
+    transform: scale(1.03); 
+    box-shadow: var(--current-hovershadow);  
+    filter: brightness(0.7);
+}
+
+.gallery-container::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 150px; 
+    background: linear-gradient(to top, var(--current-bg-solid), transparent); 
+    pointer-events: none; 
+    transition: opacity 0.5s ease; 
+}
+
+.gallery-container.is-expanded::after { 
+    opacity: 0; 
+}
+
+.gallery-toggle { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    margin: 2.5rem auto 0 auto; 
+    padding: 0.7rem 1.5rem; 
+    background-color: transparent; 
+    border: 2px solid var(--current-figure-border); 
+    color: var(--current-text); 
+    font-family: inherit; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    border-radius: 12px 2px; 
+    transition: all var(--transition); 
+}
+
+.gallery-toggle:hover { 
+    border-color: var(--current-accent-hover); 
+    color: var(--current-accent-hover); 
+}
+
+.gallery-toggle .arrow { 
+    transition: transform 0.4s ease; 
+}
+
+.gallery-container.is-expanded + .gallery-toggle .arrow { 
+    transform: rotate(180deg); 
+}
+
+.requirements-wrapper { 
+    display: flex; 
+    justify-content: center; 
+    gap: 4rem; 
+    flex-wrap: wrap; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    background: var(--current-figure-bg); 
+    padding: 3rem; 
+    border: 2px solid var(--current-figure-border); 
+    border-radius: 24px 4px; 
+}
+
+.requirements-column { 
+    flex: 1; 
+    min-width: 300px; 
+}
+
+.requirements-column h3 { 
+    color: var(--current-accent-hover); 
+    font-size: 1.5rem; 
+    border-bottom: 2px solid var(--current-figure-border); 
+    padding-bottom: 1rem; 
+    margin-bottom: 1.5rem; 
+}
+
+.requirements-column ul { 
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.requirements-column ul li { 
+    display: flex; 
+    align-items: center; 
+    gap: 2rem; 
+    font-size: 1rem; 
+    margin-bottom: 1rem; 
+    margin-top: 1rem; 
+    padding-top: 0.5rem; 
+    max-height: 25vh;  
+    overflow: scroll;
+} 
+
+.requirements-column ul li svg { 
+    flex-shrink: 0; 
+    width: 22px; 
+    height: 22px; 
+    color: var(--current-accent-hover); 
+}
+
+#cta-section { 
+    text-align: center; 
+    padding-bottom: 8rem; 
+}
+
+#cta-section h2 { 
+    font-size: 3rem; 
+    color: var(--current-text-herotitle); 
+}
+
+#cta-section p { 
+    max-width: 600px; 
+    margin: 1.5rem auto 3rem auto; 
+    font-size: 1.1rem; 
+}
+
+.cta-button { 
+    display: inline-block; 
+    padding: 1.2rem 3rem; 
+    border: 2px solid var(--current-accent-hover); 
+    background-color: var(--current-accent-hover); 
+    color: var(--current-nav-hovertext); 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    transition: all 0.3s ease; 
+    border-radius: 12px 2px; 
+}
+
+.cta-button2 { 
+    display: inline-block;
+    padding: 1.2rem 3rem; 
+    background-color: transparent; 
+    border: 2px solid var(--current-figure-border); 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    border-radius: 12px 2px;
+    align-items: center; 
+    gap: 0.5rem; 
+    margin: 2.5rem auto 0 auto; 
+    color: var(--current-text); 
+    font-family: inherit; 
+    transition: all var(--transition); 
+}
+
+.cta-button2:hover { 
+    background-color: transparent; 
+    border-color: var(--current-accent-hover); 
+    color: var(--current-accent-hover); 
+}
+
+.cta-button:hover { 
+    transform: scale(1.05) translateY(-3px); 
+    background-color: transparent; 
+    color: var(--current-accent-hover); 
+}
+
+.game-hero-carousel .content > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.game-hero-carousel.animate-in .content > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.game-hero-carousel.animate-in .content .title { transition-delay: 0.2s; }
+.game-hero-carousel.animate-in .content .name  { transition-delay: 0.3s; }
+.game-hero-carousel.animate-in .content .des   { transition-delay: 0.4s; }
+
+/* ========== 7. FORMULAIRE & FOOTER ========== */
+.form-section { 
+    padding: 6rem 2rem; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.form-wrapper { 
+    width: 40%; 
+    max-width: 800px; 
+    padding: 3rem; 
+    background-color: var(--current-form-bg); 
+    border: 2px solid var(--current-accent-hover); 
+    border-radius: 24px 4px; 
+    backdrop-filter: blur(10px) saturate(120%); 
+    -webkit-backdrop-filter: blur(10px) saturate(120%); 
+    transition: background-color var(--transition-fast), border-color var(--transition-fast); 
+}
+
+.contact-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem; 
+}
+
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+}
+
+.form-group label { 
+    margin-bottom: 1rem; 
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    color: var(--current-text-herotitle); 
+}
+
+.form-group input, 
+.form-group textarea { 
+    margin-bottom: 2rem; 
+    padding: 1rem; 
+    font-family: inherit; 
+    font-size: 1rem; 
+    background-color: var(--current-form-input-bg); 
+    color: var(--current-form-input-text); 
+    border: 1px solid var(--current-figure-border); 
+    border-radius: 12px 2px; 
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast); 
+}
+
+.form-group input:focus, 
+.form-group textarea:focus { 
+    outline: none; 
+    border-color: var(--current-accent-hover); 
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--current-accent-hover) 25%, transparent); 
+}
+
+.form-group textarea { 
+    resize: vertical; 
+    min-height: 150px; 
+}
+
+.form-title { 
+    font-size: 1.8rem; 
+    margin-bottom: 2.5rem; 
+    text-align: center; 
+    color: var(--current-text-herotitle); 
+}
+
+.submit-btn { 
+    align-self: center; 
+    margin-top: 1.5rem; 
+    padding: 0.8rem 1.8rem; 
+    border: 2px solid var(--current-accent-hover); 
+    background-color: var(--current-accent-hover); 
+    color: var(--current-nav-hovertext); 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    transition: all 0.3s ease; 
+    border-radius: 12px 2px; 
+}
+
+.submit-btn:hover { 
+    transform: scale(1.05) translateY(-2px); 
+    background-color: transparent; 
+    color: var(--current-accent-hover); 
+}
+
+#form-status { 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    text-align: center; 
+    font-weight: bold; 
+    display: none; 
+    border-radius: 12px 2px; 
+}
+
+#form-status.success { 
+    background-color: #28a745; 
+    color: white; 
+}
+
+#form-status.error { 
+    background-color: #dc3545; 
+    color: white; 
+}
+
+footer { 
+    flex-shrink: 0; 
+    padding: 3rem 2rem; 
+    background-color: var(--current-bg-solid); 
+    color: var(--current-text); 
+    box-shadow: 0 -3px 5px color-mix(in srgb, var(--current-accent-hover) 20%, transparent); 
+    border-top: 1px solid var(--current-figure-border); 
+    transition: background-color var(--transition-fast), color var(--transition-fast); 
+}
+
+.spacer{ 
+    height: 25vh; 
+}
+
+.footer-inner { 
+    max-width: 1200px; 
+    margin: auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem; 
+}
+
+.footer-categories { 
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    gap: 2rem; 
+}
+
+.footer-column { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.footer-column h3 { 
+    margin-bottom: 1rem; 
+    font-size: 1.2rem; 
+    text-transform: uppercase; 
+    color: var(--current-text-herotitle); 
+}
+
+.footer-column a { 
+    transition: color var(--transition); 
+}
+
+.footer-column a:hover { 
+    color: var(--current-accent-hover); 
+}
+
+.footer-column ul.pages { 
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.footer-column ul.pages li { 
+    padding-bottom: 8px; 
+}
+
+.footer-contact a { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    margin-top: 8px; 
+}
+
+.footer-contact svg { 
+    width: 25px; 
+    height: 25px; 
+    flex-shrink: 0; 
+}
+
+.footer-bottom { 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 2rem; 
+    font-size: 0.9rem; 
+    margin-top: 2rem; 
+    border-top: 1px solid var(--current-figure-border); 
+    padding-top: 1rem; 
+}
+
+select { 
+    background: var(--current-input-bg); 
+    color: var(--current-text); 
+    padding: 0.5rem; 
+    border: 1px solid var(--current-figure-border); 
+    cursor: pointer; 
+    border-radius: 8px 2px; 
+}
+
+.footer-select { 
+    margin-top: 0.5rem; 
+}
+
+.footer-column a.current-page {
+    color: var(--current-accent-currentLink) !important;
+    filter: var(--currentLink-brightness-value);
+}
+
+/* ========== 8. ANIMATIONS ========== */
+@keyframes spawn { 
+    from { 
+        opacity: 0; 
+        transform: translateY(-50px); 
+    } 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+.animate-on-load { 
+    animation: spawn 0.8s ease-out 0.3s; 
+    animation-fill-mode: backwards; 
+}
+
+.fade-in-on-scroll { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+}
+
+.fade-in-on-scroll.is-visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* ========== 9. EFFET DE CHARGEMENT & FONDU ========== */
+#page-transition-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: var(--current-bg-solid); 
+    z-index: 10000; 
+    opacity: 1; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease-in-out; 
+}
+
+#page-transition-overlay.fade-out { 
+    opacity: 0; 
+}
+
+#page-transition-overlay.fade-in { 
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+.loader-wrapper { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: var(--current-bg-solid); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 9999; 
+    transition: opacity 1.5s ease; 
+}
+
+.loader { 
+    animation: rotate 1s infinite; 
+    height: 50px; 
+    width: 50px; 
+}
+
+.loader:before, 
+.loader:after { 
+    content: ""; 
+    display: block; 
+    height: 20px; 
+    width: 20px; 
+}
+
+.loader:before { 
+    animation: box1 1s infinite; 
+    background-color: var(--current-text-herotitle); 
+    box-shadow: 30px 0 0 var(--current-accent-hover); 
+    margin-bottom: 10px; 
+}
+
+.loader:after { 
+    animation: box2 1s infinite; 
+    background-color: var(--current-accent-hover); 
+    box-shadow: 30px 0 0 var(--current-text-herotitle); 
+}
+
+@keyframes rotate { 
+    0% { transform: rotate(0deg) scale(0.8) } 
+    50% { transform: rotate(360deg) scale(1.2) } 
+    100% { transform: rotate(720deg) scale(0.8) } 
+}
+
+@keyframes box1 { 
+    0% { box-shadow: 30px 0 0 var(--current-accent-hover); } 
+    50% { box-shadow: 0 0 0 var(--current-accent-hover); margin-bottom: 0; transform: translate(15px, 15px); } 
+    100% { box-shadow: 30px 0 0 var(--current-accent-hover); margin-bottom: 10px; } 
+}
+
+@keyframes box2 { 
+    0% { box-shadow: 30px 0 0 var(--current-text-herotitle); } 
+    50% { box-shadow: 0 0 0 var(--current-text-herotitle); margin-top: -20px; transform: translate(15px, 15px); } 
+    100% { box-shadow: 30px 0 0 var(--current-text-herotitle); margin-top: 0; } 
+}
+
+.content { 
+    opacity: 1; 
+}
+
+.loader-wrapper.hidden { 
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+/* ========== 10. MENU BURGER & NAVIGATION MOBILE ========== */
+.burger-menu {
+    display: none;
+    z-index: 1002;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.burger-menu .bar { 
+    display: block; 
+    width: 28px; 
+    height: 3px; 
+    margin: 5px auto; 
+    background-color: var(--current-text-herotitle); 
+    transition: all 0.3s ease-in-out; 
+}
+
+.burger-menu.is-open .bar:nth-child(1) { 
+    transform: translateY(8px) rotate(45deg); 
+}
+
+.burger-menu.is-open .bar:nth-child(2) { 
+    opacity: 0; 
+}
+
+.burger-menu.is-open .bar:nth-child(3) { 
+    transform: translateY(-8px) rotate(-45deg); 
+}
+
+.mobile-nav-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--current-nav);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateY(-150%);
+    transition: transform 0.4s ease-in-out, visibility 0.4s;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.mobile-nav-panel.is-open {
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.mobile-nav-panel ul { 
+    list-style: none; 
+    padding: 1rem 0; 
+    text-align: center; 
+}
+
+.mobile-nav-panel ul li { 
+    padding: 1rem 0; 
+}
+
+.mobile-nav-panel ul li a {
+    font-size: 1.2rem;
+    color: var(--current-text);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.mobile-nav-panel ul li a:hover { 
+    color: var(--current-accent-hover); 
+}
+
+body.no-scroll { 
+    overflow: hidden; 
+}
+
+/* ========== 11. STYLES PERSONNALISÉS DE LA SCROLLBAR ========== */
+::-webkit-scrollbar-thumb { 
+    background-color: var(--current-accent-hover) !important; 
+    border-radius: 50px 5px !important; 
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-track { 
+    background-color: var(--current-figure-bg) !important; 
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar { 
+    width: 7px; 
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-thumb:hover { 
+    background-color: var(--current-accent-hover) !important; 
+    width: 9px; 
+    filter: brightness(1.5); 
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+    background: transparent !important;
+}
+
+/* ========== 12. CORRECTIF GLIGHTBOX ========== */
+/* Correctif GLightbox pour empêcher le dépassement */
+.gslide-media img {
+    max-height: 95vh !important;
+    max-width: 95vw !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* ========== 13. RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    body {
+        min-height: fit-content;
+    }
+    
+    #main_nav { 
+        flex-direction: row; 
+        justify-content: space-between; 
+        padding: 1rem; 
+        height: auto; 
+    }
+    
+    #main_nav #theme-icon { 
+        display: none; 
+    }
+    
+    #main_nav #main_logo { 
+        margin-bottom: 0; 
+    }
+    
+    #main_nav ul { 
+        display: none; 
+    }
+    
+    .burger-menu { 
+        display: block; 
+    }
+    
+    /* Styles pour les pages courantes dans le menu burger mobile */
+    .mobile-nav-panel ul li a.current-page {
+        color: var(--current-accent-currentLink) !important;
+        filter: var(--currentLink-brightness-value);
+        padding: 0.8rem 1.5rem;
+        margin: 0.2rem 1rem;
+    }
+
+    /* Style pour le li parent quand le lien est actif */
+    .mobile-nav-panel ul li:has(> a.current-page) {
+        color: var(--current-accent-currentLink) !important;
+        filter: var(--currentLink-brightness-value);
+    }
+
+    .hero .iconetitre #logo-hero { 
+        width: 40vw; 
+    }
+    
+    .hero #hero-title { 
+        font-size: 2.2rem; 
+        text-align: center; 
+    }
+    
+    .games-container, 
+    .info-container, 
+    .contact-container, 
+    .about-container, 
+    .form-section, 
+    .game-content-section { 
+        padding: 4rem 1rem; 
+    }
+    
+    .games-title, 
+    .info-title, 
+    .contact-title, 
+    .about-title, 
+    .section-title { 
+        font-size: 1.8rem; 
+    }
+    
+    .games-intro, 
+    .info-intro, 
+    .contact-intro, 
+    .about-intro { 
+        width: 90vw; 
+        text-align: center; 
+    }
+    
+    .images_contact, 
+    .images_info, 
+    .images_about { 
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+    }
+    
+    figure.card-style { 
+        width: 80%;
+    }
+    
+    /* ========== CORRECTIONS SPÉCIFIQUES POUR LES CARTES DE JEU SUR MOBILE ========== */
+    .jeux { 
+        width: 100%; 
+        gap: 3rem;
+        margin-top: 3rem;
+    }
+    
+    .jeux .game-item { 
+        flex-direction: column; 
+        width: 90vw; 
+        align-items: center; 
+        height: auto;
+        padding: 1rem;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+    
+    .jeux .game-item figure { 
+        width: 100% !important; 
+        max-width: 100% !important;
+        min-width: 100% !important;
+        flex-basis: auto !important;
+        height: 250px;
+        margin: 0 auto;
+    }
+    
+    /* Conteneur des boutons mobile - AMÉLIORÉ */
+    .mobile-buttons-container {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem 0 0 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    /* Bouton Jouer mobile - AMÉLIORÉ */
+    .mobile-play-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--current-accent-hover), color-mix(in srgb, var(--current-accent-hover) 70%, transparent));
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px color-mix(in srgb, var(--current-accent-hover) 40%, transparent);
+        border: 2px solid var(--current-accent-hover);
+    }
+    
+    .mobile-play-button:hover {
+        transform: scale(1.15);
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--current-accent-hover) 60%, transparent);
+    }
+    
+    .mobile-play-button .play-icon {
+        width: 28px;
+        height: 28px;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-play-button:hover .play-icon {
+        transform: scale(1.2);
+    }
+    
+    /* Bouton "En savoir plus" mobile - AMÉLIORÉ */
+    .mobile-more-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.8rem 1.5rem;
+        border: 2px solid var(--current-accent-hover);
+        color: var(--current-accent-hover);
+        background-color: color-mix(in srgb, var(--current-accent-hover) 10%, transparent);
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        min-width: 140px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-more-button:hover {
+        background-color: var(--current-accent-hover);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px color-mix(in srgb, var(--current-accent-hover) 40%, transparent);
+    }
+    
+    .jeux .game-item .game-description {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: flex-start;
+        flex: 1 1 auto;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        height: auto;
+        overflow-y: visible;
+        padding: 0.5rem 0;
+        margin-right: 0 !important;
+        -webkit-mask-image: none;
+        mask-image: none;
+        scrollbar-width: none;
+    }
+    
+    .jeux .game-item .game-description h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+    
+    .jeux .game-item .game-description p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: justify;
+        margin-bottom: 1rem;
+    }
+    
+    /* Ajustements pour les images dans les cartes */
+    .jeux .game-item figure img, 
+    .jeux .game-item figure picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Cacher l'overlay desktop sur mobile */
+    .jeux .image-overlay {
+        display: none !important;
+    }
+    
+    .overlay-play-button,
+    .overlay-more-button {
+        display: none !important;
+    }
+
+    .form-wrapper { 
+        width: 90vw; 
+        padding: 2rem; 
+    }
+    
+    .footer-categories { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    .footer-bottom { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    .footer-column { 
+        align-items: center; 
+        width: 100%; 
+    }
+    
+    .footer-toggle {
+        position: relative;
+        padding-right: 30px;
+        cursor: pointer;
+    }
+    
+    .footer-toggle::after {
+        content: '▼';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        transition: transform 0.3s ease;
+        font-size: 0.8em;
+    }
+    
+    .footer-toggle.is-open::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease, margin 0.5s ease;
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .footer-links a {
+        font-size: 1.5rem;
+    }
+    
+    .footer-links.is-open {
+        max-height: 500px;
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    /* Styles pour les pages courantes dans le footer mobile */
+    .footer-column a.current-page {
+        color: var(--current-accent-currentLink) !important;
+        filter: var(--currentLink-brightness-value);
+    }
+
+    .game-hero-carousel { 
+        height: 70vh; 
+        min-height: 500px; 
+    }
+    
+    .game-hero-carousel .content { 
+        left: 20px; 
+        width: 90%; 
+    }
+    
+    .game-hero-carousel .content .title, 
+    .game-hero-carousel .content .name { 
+        font-size: 3rem; 
+    }
+    
+    .intro-card { 
+        width: 90vw; 
+        padding: 2rem; 
+    }
+    
+    .gallery-container { 
+        max-height: 750px; 
+    }
+    
+    .requirements-wrapper { 
+        padding: 2rem; 
+    }
+    
+    #cta-section h2 { 
+        font-size: 1.8rem; 
+    }
+
+    /* Amélioration de l'espacement général */
+    .spacer {
+        height: 2rem;
+    }
+
+    /* Scrollbar mobile améliorée */
+    ::-webkit-scrollbar-thumb { 
+        background: color-mix(in srgb, var(--current-accent-hover) 80%, transparent) !important; 
+        border: solid 1px var(--current-accent-hover); 
+        border-radius: 50px 5px !important; 
+        cursor: pointer !important;
+    }
+    
+    ::-webkit-scrollbar-track { 
+        background: color-mix(in srgb, var(--current-figure-bg) 50%, transparent) !important; 
+        cursor: pointer !important;
+    }
+    
+    ::-webkit-scrollbar { 
+        width: 8px; 
+        cursor: pointer !important;
+    }
+    
+    ::-webkit-scrollbar-corner,
+    ::-webkit-resizer {
+        background: transparent !important;
+    }
+}
+
+/* ========== STYLES SPÉCIFIQUES PAGE JEUX ========== */
+
+/* Styles mobiles pour la page jeux */
+@media (max-width: 768px) {
+    .games-container {
+        padding: 2rem 1rem !important;
+    }
+
+    .games-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .games-intro {
+        width: 100% !important;
+        margin: 2rem auto !important;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .jeux {
+        width: 100%;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .jeux .game-item {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 1rem;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .jeux .game-item figure {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        flex-basis: auto !important;
+        height: 200px;
+        margin: 0 auto;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .jeux .game-item figure img,
+    .jeux .game-item figure picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Conteneur des boutons mobile - OPTIMISÉ */
+    .mobile-buttons-container {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0 0 0;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    /* Bouton Jouer mobile - OPTIMISÉ */
+    .mobile-play-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 55px;
+        height: 55px;
+        background: var(--current-accent-hover);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--current-accent-hover) 50%, transparent);
+        border: 2px solid var(--current-accent-hover);
+    }
+
+    .mobile-play-button:hover {
+        transform: scale(1.12);
+        box-shadow: 0 6px 18px color-mix(in srgb, var(--current-accent-hover) 70%, transparent);
+    }
+
+    .mobile-play-button .play-icon {
+        width: 26px;
+        height: 26px;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-play-button:hover .play-icon {
+        transform: scale(1.1);
+    }
+
+    /* Bouton "?" mobile - OPTIMISÉ */
+    .mobile-more-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0.8rem 1.3rem;
+        border: 2px solid var(--current-accent-hover);
+        color: var(--current-accent-hover);
+        background-color: color-mix(in srgb, var(--current-accent-hover) 5%, transparent);
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        min-width: 130px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .mobile-more-button:hover {
+        background-color: var(--current-accent-hover);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--current-accent-hover) 50%, transparent);
+    }
+
+    .jeux .game-item .game-description {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: flex-start;
+        flex: 1 1 auto;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        height: auto;
+        overflow-y: visible;
+        padding: 0.5rem 0;
+        margin-right: 0 !important;
+        -webkit-mask-image: none;
+        mask-image: none;
+        scrollbar-width: none;
+    }
+
+    .jeux .game-item .game-description h2 {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .jeux .game-item .game-description p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .spacer {
+        height: 1.5rem;
+    }
+
+    .jeux .game-item .game-description::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Cacher l'overlay desktop sur mobile */
+    .jeux .image-overlay {
+        display: none !important;
+    }
+}
+
+/* Styles desktop pour la page jeux */
+@media (min-width: 769px) {
+    .mobile-buttons-container {
+        display: none !important;
+    }
+
+    .jeux .image-overlay {
+        position: absolute !important;
+        inset: 0 !important;
+        background: color-mix(in srgb, var(--current-accent-hover) var(--overlay-opacity-value), transparent) !important;
+        backdrop-filter: blur(12px) saturate(150%) !important;
+        -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+        opacity: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1rem !important;
+        border-radius: 24px 4px !important;
+        filter: brightness(var(--overlay-brightness-value)) !important;
+        height: 100% !important;
+        width: 100% !important;
+        transition: opacity 0.3s ease-in-out !important;
+        pointer-events: none !important;
+    }
+
+    .jeux .game-item figure:hover .image-overlay {
+        opacity: 1 !important;
+    }
+
+    .overlay-play-button,
+    .overlay-more-button {
+        opacity: 0 !important;
+        transform: translateY(10px) !important;
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out !important;
+        pointer-events: auto !important;
+    }
+
+    .jeux .game-item figure:hover .overlay-play-button,
+    .jeux .game-item figure:hover .overlay-more-button {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .overlay-play-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .overlay-play-button .play-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.5rem;
+    }
+
+    .overlay-more-button {
+        margin-top: 1.5rem;
+        padding: 0.5rem 1.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+        background-color: transparent;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .overlay-more-button:hover {
+        background-color: white;
+        color: #03040B;
+    }
+
+    .jeux .game-item {
+        height: auto !important;
+        min-height: 350px;
+        max-height: none !important;
+        width: 75vw !important;
+        max-width: 1000px;
+        margin: 0 auto 2rem auto;
+        align-items: stretch !important;
+    }
+
+    .jeux .game-item figure {
+        flex-basis: 60% !important;
+        max-width: 60% !important;
+        height: 350px !important;
+        min-height: 350px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin: 0 !important;
+    }
+
+    .jeux .game-item figure img,
+    .jeux .game-item figure picture img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    .jeux .game-item .game-description {
+        flex: 1 !important;
+        min-width: 35% !important;
+        max-width: 35% !important;
+        height: 350px !important;
+        overflow: hidden !important;
+        margin-right: 1rem !important;
+        padding: 1rem !important;
+        position: relative;
+    }
+
+    .jeux .game-item .game-description::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, 
+            transparent 0%, 
+            var(--current-figure-bg) 80%
+        );
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .jeux .game-item .game-description.expanded::after {
+        opacity: 0;
+    }
+
+    .read-more-btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--current-accent-hover);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        z-index: 2;
+        transition: all 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+        background: var(--current-accent-currentLink);
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    .jeux .game-item .game-description h2 {
+        margin-bottom: 1rem !important;
+        font-size: 1.4rem !important;
+        line-height: 1.3 !important;
+        text-align: left !important;
+    }
+
+    .jeux .game-item .game-description p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 0.5rem !important;
+        text-align: justify !important;
+    }
+
+    .jeux .game-item {
+        gap: 1rem !important;
+        padding: 1.5rem !important;
+    }
+
+    .jeux .game-item .game-description.expanded {
+        overflow-y: auto !important;
+        height: auto !important;
+        max-height: 500px !important;
+    }
+
+    .jeux .game-item .game-description.expanded::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .jeux .game-item .game-description.expanded::-webkit-scrollbar-thumb {
+        background-color: var(--current-accent-hover);
+        border-radius: 2px;
+    }
+
+    .jeux .game-item .game-description.expanded::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}
+
+/* Styles pour très petits écrans */
+@media (max-width: 480px) {
+    .games-container {
+        padding: 1.5rem 0.5rem !important;
+    }
+
+    .games-title {
+        font-size: 1.6rem !important;
+    }
+
+    .games-intro {
+        font-size: 0.8rem;
+        margin: 1.5rem auto !important;
+    }
+
+    .jeux .game-item figure {
+        height: 180px;
+    }
+
+    .jeux .game-item .game-description h2 {
+        font-size: 1.2rem;
+    }
+
+    .jeux .game-item .game-description p {
+        font-size: 0.8rem;
+    }
+
+    .jeux .game-item {
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    /* Boutons optimisés pour très petits écrans */
+    .mobile-buttons-container {
+        flex-direction: row;
+        gap: 0.8rem;
+        padding: 0.8rem 0 0 0;
+    }
+
+    .mobile-play-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .mobile-play-button .play-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .mobile-more-button {
+        font-size: 1rem;
+        padding: 0.7rem 1.1rem;
+        min-width: 120px;
+    }
+}
+
+/* ========== 14. AMÉLIORATIONS UX & ACCESSIBILITÉ ========== */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--current-accent-hover);
+    color: var(--current-nav-hovertext, #FFFFFF) !important;
+    padding: 10px 15px;
+    z-index: 10001;
+    transition: top 0.3s ease-in-out;
+    border-bottom-right-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Effet hover réutilisable */
+.hover-glow-effect {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition), opacity 0.4s ease;
+}
+
+.hover-glow-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--current-accent-hover), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+.hover-glow-effect:hover::before {
+    left: 100%;
+}
+
+.hover-glow-effect:hover {
+    background-color: var(--current-accent-hover);
+    color: #FFFFFF;
+    border-color: var(--current-accent-hover);
+    box-shadow: 0 5px 20px var(--current-accent-hover);
+    transform: translateY(-3px);
+}
+
+/* Bouton "Retour en haut" avec correction de positionnement */
+#back-to-top-btn {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: var(--current-accent-hover);
+    border: 2px solid var(--current-accent-hover);
+    border-radius: 12px 2px;
+    z-index: 10010 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--current-accent-hover), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+#back-to-top-btn:hover::before {
+    left: 100%;
+}
+
+#back-to-top-btn:hover {
+    background-color: var(--current-accent-hover);
+    color: #FFFFFF !important;
+    border-color: var(--current-accent-hover);
+    box-shadow: 0 5px 20px var(--current-accent-hover);
+    transform: translateY(-3px);
+}
+
+#back-to-top-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+#back-to-top-btn:hover svg {
+    transform: translateY(-2px);
+}
+
+/* Application de l'effet à l'indicateur de scroll */
+#scroll-down-indicator {
+    position: relative;
+    overflow: hidden;
+}
+
+#scroll-down-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--current-accent-hover), transparent);
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+#scroll-down-indicator:hover::before {
+    left: 100%;
+}
+
+#scroll-down-indicator:hover {
+    background-color: var(--current-accent-hover);
+    color: #FFFFFF !important;
+    border-color: var(--current-accent-hover);
+    box-shadow: 0 5px 20px var(--current-accent-hover);
+    transform: translateY(-3px);
+}
+
+/* Hiérarchie des z-index pour référence */
+header {
+    z-index: 10000;
+}
+
+.mobile-nav-panel {
+    z-index: 10001;
+}
+
+footer {
+    z-index: 1;
+    position: relative;
+}
+
+/* ========== 15. AMÉLIORATIONS DE PERFORMANCE ========== */
+/* Optimisations pour les animations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Conteneur pour les images avec lazy loading */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    transition: opacity 0.3s ease;
+}
+
+.image-container img[data-src] {
+    opacity: 0;
+}
+
+.image-container img.loaded {
+    opacity: 1;
+}
+
+/* ========== FIN DU FICHIER CSS ========== */

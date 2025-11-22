@@ -1,0 +1,21 @@
+{
+    "name": "OctetNova",
+    "short_name": "OctetNova",
+    "description": "OctetNova est un studio de développement de jeux vidéo indépendants. Découvrez nos projets et notre univers.",
+    "start_url": "/html/index.html",
+    "display": "standalone",
+    "background_color": "#03040B",
+    "theme_color": "#03040B",
+    "icons": [
+        {
+            "src": "/img/icon/icon_wb_192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/icon/icon_wb_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
