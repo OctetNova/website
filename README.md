@@ -1,3 +1,113 @@
+# OctetNova
+
+___       __   __            __
+/ _ | ___ / / / / ___ ___ / /_
+/ __ |/ -) / / /__/ -) _ / __/
+// ||_// //_/ ./_/
+/_/
+
+
+## Table des Matières / Table of Contents
+
+### Français
+1. [Avis Légal](#avis-légal)
+2. [Information du Projet](#information-du-projet)
+3. [Licence](#licence)
+4. [Directives d'Utilisation](#directives-dutilisation)
+5. [Structure du Projet](#structure-du-projet)
+6. [Support](#support)
+7. [Notes Importantes](#notes-importantes)
+
+### English
+1. [Legal Notice](#legal-notice)
+2. [Project Information](#project-information)
+3. [License](#license)
+4. [Usage Guidelines](#usage-guidelines)
+5. [Project Structure](#project-structure)
+6. [Support](#support-1)
+7. [Important Notes](#important-notes)
+
+---
+
+## Français
+
+### Avis Légal
+
+Copyright 2020-2025 OctetNova - Tous droits réservés
+
+### Information du Projet
+
+- **Auteur** : OctetNova - Llian Martin
+- **Version** : V5.0.0 (stable) & V4.3.2
+- **Dernière mise à jour** : 18/10/2025
+- **Contact** : contact@octetnova.fr
+- **Site Web** : https://www.octetnova.fr
+
+### Licence
+
+Ce projet est sous licence **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International** (CC BY-NC-SA 4.0).
+
+#### Vous êtes libres de :
+
+- **Partager** - copier et redistribuer le matériel sur tout support ou format
+- **Adapter** - remixer, transformer et créer à partir du matériel
+
+#### Sous les conditions suivantes :
+
+- **Attribution** - Vous devez créditer l'œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'offrant vous soutient ou soutient la façon dont vous avez utilisé son œuvre.
+- **NonCommercial** - Vous n'êtes pas autorisé à faire un usage commercial de cette œuvre.
+- **ShareAlike** - Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir du matériel composant l'œuvre originale, vous devez diffuser l'œuvre modifiée dans les mêmes conditions, c'est-à-dire avec la même licence avec laquelle l'œuvre originale a été diffusée.
+
+#### Texte complet de la licence :
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+### Directives d'Utilisation
+
+#### Pour les utilisateurs finaux
+
+Vous pouvez :
+- Utiliser le logiciel à des fins personnelles ou éducatives
+- Modifier le code pour votre usage non commercial
+- Partager le logiciel avec d'autres
+
+Vous ne pouvez pas :
+- Utiliser ce logiciel à des fins commerciales sans autorisation explicite
+- Supprimer ou modifier les avis de copyright
+- Revendiquer la propriété du travail original
+
+#### Pour les développeurs
+
+Si vous souhaitez modifier ou étendre ce code :
+
+##### Prérequis
+1. Obtenir une autorisation écrite de l'auteur avant toute modification
+2. Lire et comprendre l'ensemble du codebase
+3. Créer une sauvegarde complète du répertoire original
+
+##### Exigences de modification
+- Mettre à jour les en-têtes dans tous les fichiers modifiés (HTML5, CSS3, JS)
+- Conserver les avis de copyright et de licence originaux
+- Commenter toutes les modifications clairement
+- Préserver l'intégrité du site (structure, fonctionnalité, mise en page, responsivité)
+- Créditer l'auteur original : OctetNova - Llian Martin
+- Partager les versions modifiées sous la même licence CC BY-NC-SA 4.0
+
+##### Standards techniques
+- Utiliser les attributs HTML data-i18n pour l'internationalisation
+- Utiliser les modules de traduction JS pour le support multilingue
+- Vérifier la cohérence du CSS et du thème
+- Tester la responsivité sur tous les appareils
+- Vérifier les paramètres du footer et la cohérence de la mise en page
+- L'assistance IA est autorisée mais doit être divulguée dans les commentaires d'en-tête
+
+### Structure du Projet
+project/
+├── css/ # Feuilles de style
+├── js/ # Fichiers JavaScript
+├── html/ # Templates HTML
+├── assets/ # Images et médias
+└── legal/ # Documentation légale
+
 
 ### Support
 
