@@ -340,7 +340,7 @@ header {
     filter: brightness(0.7);
 }
 
-#main_nav ul { 
+#main_nav ul {
     display: flex; 
     list-style: none; 
     gap: 2rem; 
