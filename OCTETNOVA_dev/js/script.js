@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // DURATION : Durée de l'animation de scroll (en secondes)
         // - Plus la valeur est basse, plus le scroll est rapide
         // - Plus la valeur est haute, plus le scroll est lent et fluide
-        const SCROLL_DURATION = 1.2; // Essayez entre 1.2 (rapide) et 2.5 (très lent) ideal:1 defaut 1.1
+        const SCROLL_DURATION = 1; // Essayez entre 1.2 (rapide) et 2.5 (très lent)  //ideal:1
         
         // EASING : Courbe d'animation du scroll
         // - 'easeOutCubic' : Très smooth, décélération progressive (recommandé)
@@ -142,15 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // WHEEL_MULTIPLIER : Sensibilité de la molette de souris
         // - Plus la valeur est basse, moins le scroll "avance" par tick de molette
         // - Plus la valeur est haute, plus le scroll est sensible
-        const WHEEL_MULTIPLIER = 1.5; // Essayez entre 0.8 (peu sensible) et 1.5 (très sensible) ideal: 2.5 defaut 1.6
+        const WHEEL_MULTIPLIER = 2.5; // Essayez entre 0.8 (peu sensible) et 1.5 (très sensible) //ideal: 2.5
         
         // TOUCH_MULTIPLIER : Sensibilité du touch (mobile)
-        const TOUCH_MULTIPLIER = 1.3; //a voir
+        const TOUCH_MULTIPLIER = 1;  //à voir
         
         // SMOOTH_TOUCH : Activer le smooth scroll sur mobile
         // - true : Scroll fluide sur mobile (peut être moins réactif)
-        // - false : Scroll natif sur mobile (plus réactif) defaut
-        const SMOOTH_TOUCH = true; //a voir
+        // - false : Scroll natif sur mobile (plus réactif)
+        const SMOOTH_TOUCH = true; //à voir
         
         // =============================================
         // FIN DES RÉGLAGES - NE PAS MODIFIER CI-DESSOUS
