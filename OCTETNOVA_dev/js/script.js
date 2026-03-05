@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // WHEEL_MULTIPLIER : Sensibilité de la molette de souris
         // - Plus la valeur est basse, moins le scroll "avance" par tick de molette
         // - Plus la valeur est haute, plus le scroll est sensible
-        const WHEEL_MULTIPLIER = 2.3; // Essayez entre 0.8 (peu sensible) et 1.5 (très sensible) //ideal: 2.5
+        const WHEEL_MULTIPLIER = 1.9; // Essayez entre 0.8 (peu sensible) et 1.5 (très sensible) //ideal: 2.5
         
         // TOUCH_MULTIPLIER : Sensibilité du touch (mobile)
         const TOUCH_MULTIPLIER = 1;  //à voir
