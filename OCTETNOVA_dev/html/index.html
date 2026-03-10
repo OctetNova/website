@@ -1,47 +1,4 @@
-<!-- The above code is an HTML document that serves as the main homepage for the OctetNova studio. It
-includes various sections and elements such as: -->
 <!DOCTYPE html>
-<!--
-    Nom du fichier : index.html
-    Description : Page d'accueil principale vitrine du studio Octetnova.
-    
-    ====================================================================================
-    L'intégralité des fichiers des ci-contre et suivants répertoires sont la propriété
-    exclusive d'Octetnova. Toute copie, modification, diffusion ou reproduction,
-    totale ou partielle, est strictement interdite sans l'accord écrit préalable
-    d'Octetnova. Merci de respecter le travail des développeurs.
-    -------------------------------------------------------------------------------------
-    Ce projet est distribué sous licence Creative Commons Attribution - Non Commercial -
-    No Derivatives 4.0 International (CC BY-NC-ND 4.0).
-    Vous êtes autorisé à partager ce travail à condition de créditer l'auteur, sans
-    utilisation commerciale et sans aucune modification.
-    ====================================================================================
-    Contact : contact@octetnova.fr
-    Site officiel : https://www.octetnova.fr
-    -------------------------------------------------------------------------------------
-    © 2020 - 2025 OctetNova. Tous droits réservés.
-    Licence : Propriétaire – Utilisation restreinte.
-    -------------------------------------------------------------------------------------
-    Auteur : Octetnova — Lilian Martin
-    Version : 8.5.1
-    Date : 20/11/2025
-    ====================================================================================
-
-    Pour modifier le code :
-
-    - Demander et obtenir au préalable l'accord du-des propriétaire(s)/auteur(s) : Octetnova - Lilian MARTIN (contact: contact@octetnova.fr ET lilian.martin67@outlook.fr).
-    - Lire et comprendre l'intégralité du code étudié ainsi que son fonctionnement.
-    - Créer une copie (backup) intégrale du dossier parent principal original répertoriant l'intégralité des ressources utiles au bon fonctionnement du site avant toute modification.
-    - Renommer votre copie sous la forme : "Octetnova_V*.. " (* représentant un nombre quelconque suivant le numéro de version).
-    - Modifier les entêtes de l'intégralité des fichiers (html5, css3, js).
-    - Commenter votre code.
-    - Respecter l'intégrité du site.
-    - L'usage de l'intelligence artificielle est autorisée.
-    - Traduire chaque contenu rajouté à l'aide des propriétées de balise html "data-i18n" ainsi que les parties dédiées dans le fichier javascript (js).
-    - Verifier les proprétés de style attribuées à chaque nouveau contenu dans le fichier css. L'utilisation de variables dependantes du thème selectionné par l'utilsateur est fortement recommendé.
-    - Tester les differents paramètres (footer) ainsi que la responsivité du site. Vous pouvez utiliser l'extension "Responsive Viewer" (https://bit.ly/4hhZnxS).
--->
-
 <html lang="fr">
 
 <head>
@@ -49,7 +6,7 @@ includes various sections and elements such as: -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- === SEO & PWA === -->
-    <title data-i18n="pageTitleHome">Octetnova™ - Accueil</title>
+    <title data-i18n="pageTitleHome">Octetnova - Accueil</title>
     <meta name="author" content="Octetnova — Lilian Martin">
     <meta name="keywords" content="Octetnova, jeux vidéo indépendants, studio développement, indie games, jeux vidéo français">
     <meta name="robots" content="index, follow">
@@ -60,7 +17,7 @@ includes various sections and elements such as: -->
     <meta name="revised" content="20/11/2025">
 
     <!-- === Métadonnées pour les réseaux sociaux (Open Graph & Twitter) === -->
-    <meta property="og:title" content="Octetnova™ - Accueil">
+    <meta property="og:title" content="Octetnova - Accueil">
     <meta property="og:description" content="Octetnova est un studio de développement de jeux vidéo indépendants. Découvrez nos projets et notre univers.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.octetnova.fr/html/index.html"> <!-- Mettez votre URL finale ici -->
@@ -136,37 +93,7 @@ includes various sections and elements such as: -->
                 
             </section>
 
-            <!--Cartes Info-->
-
-            <section class="info-container" id="startContent">
-                <h2 class="info-title" data-i18n="infoTitle"></h2>
-                <p class="info-intro" data-i18n="infoIntro"></p>
-                <div class="images_info">
-                    <figure class="card-style fade-in-on-scroll">
-                        <!-- OPTIMISATION : Balise <picture> pour WebP (+ Lazy Loading) -->
-                        <picture>
-                            <source srcset="../img/other/jeux_bg.webp" type="image/webp">
-                            <img src="../img/other/jeux_bg.png" data-i18n-alt="altImageJeux" loading="lazy"> 
-                            <!--  -->
-                        </picture>
-                        <a href="jeux.html" class="overlay-button" data-i18n="playButton" data-i18n-title="tooltipToGames"></a>
-                        <!-- <figcaption class="figTitle" data-i18n="independantsVideoGames"></figcaption> -->
-                    </figure>
-                    
-
-                    <figure class="card-style fade-in-on-scroll">
-                        <!-- OPTIMISATION : Balise <picture> pour WebP (+ Lazy Loading) -->
-                        <picture>
-                            <source srcset="../img/other/qsn_bg.webp" type="image/webp">
-                            <img src="../img/other/qsn_bg.png" data-i18n-alt="altImageAPropos" loading="lazy">
-                            <!--  -->
-                        </picture>
-                        <a href="a_propos.html" class="overlay-button" data-i18n="more" data-i18n-title="tooltipToAbout"></a>
-                        <!-- <figcaption class="figTitle" data-i18n="whatIsOctetNova"></figcaption> -->
-                    </figure>
-                </div>
-            </section>
-
+            
             <!--Carte de jeu (CoC)-->
 
             <section class="games-container fade-in-on-scroll" id="startContent">
@@ -209,7 +136,7 @@ includes various sections and elements such as: -->
 
             <!--Contact-->
 
-            <section class="contact-container fade-in-on-scroll" id="startContent">
+            <section class="contact-container fade-in-on-scroll">
                 <h2 class="contact-title" data-i18n="contactTitle"></h2>
                 <p class="contact-intro" data-i18n="contactIntro"></p>
                 <div class="images_contact fade-in-on-scroll">
@@ -235,24 +162,24 @@ includes various sections and elements such as: -->
             </section>
 
             <section class="form-section fade-in-on-scroll">
-                <div class="form-wrapper card-style ">
+                <div class="form-wrapper">
                     <h3 class="form-title" data-i18n="formTitle"></h3>
-                    <form id="contact-form" novalidate>
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="name" data-i18n="formNameLabel"></label>
-                            <input type="text" id="name" name="name" required placeholder-i18n="formNamePlaceholder" aria-required="true">
+                            <input type="text" id="name" name="name" required data-placeholder-i18n="formNamePlaceholder" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="email" data-i18n="formEmailLabel"></label>
-                            <input type="email" id="email" name="email" required placeholder-i18n="formEmailPlaceholder" aria-required="true">
+                            <input type="email" id="email" name="email" required data-placeholder-i18n="formEmailPlaceholder" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="subject" data-i18n="formSubjectLabel"></label>
-                            <input type="text" id="subject" name="subject" required placeholder-i18n="formSubjectPlaceholder" aria-required="true">
+                            <input type="text" id="subject" name="subject" required data-placeholder-i18n="formSubjectPlaceholder" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="message" data-i18n="formMessageLabel"></label>
-                            <textarea id="message" name="message" rows="6" required placeholder-i18n="formMessagePlaceholder" aria-required="true"></textarea>
+                            <textarea id="message" name="message" rows="6" required data-placeholder-i18n="formMessagePlaceholder" aria-required="true"></textarea>
                         </div>
                         <div id="form-status" aria-live="polite"></div>
                         <button type="submit" class="submit-btn" data-i18n="formSubmitButton"></button>
