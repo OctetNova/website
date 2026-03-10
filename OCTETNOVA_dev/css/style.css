@@ -52,6 +52,7 @@
     --transition: 0.3s ease-in-out;
     --transition-fast: 0.2s ease-out;
     --transition-main: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --header-alpha: 1;
     
     /* Couleurs de fond */
     --color-dark-bg-solid: #03040B;
@@ -64,15 +65,15 @@
     --color-blue-bg-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUkMAAAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRUMJEdwzCSJM0CgPDoCgU3fG/56flvLhZ1tqx548m1hI/rJr8VfWbplfxVE2vpms1vbrm0zV9u6b3Nf1zPb4g1yJdy3Wt1/c8DgaTgy5vYHY2wkt9083BAAAAAElFTSuQmCC');
     
     /* Variables pour le thème sombre */
-    --color-dark-text: #8E96A4;
+    --color-dark-text: #e0e3e9;
     --color-dark-text-herotitle: #FFFFFF;
     --color-dark-zone-bg: transparent;
     --color-dark-figure-bg: rgba(12, 15, 20, 0.7);
-    --figure-border-color-dark: #332D4C;
+    --figure-border-color-dark: #16253c;
     --color-dark-hovershadow: 0 0 35px -8px #00A1FF;
     --accent-dark-hover: #00A1FF;
     --accent-dark-currentLink: #14699a;
-    --color-dark-nav: rgba(3, 4, 11, 0.5);
+    --color-dark-nav: rgba(3, 4, 11, var(--header-alpha));
     --color-dark-nav-hovertext: #FFFFFF;
     --form-bg-dark: rgba(18, 24, 41, 0.5);
     --form-input-bg-dark: #03040B;
@@ -87,7 +88,7 @@
     --color-light-hovershadow: 0 15px 30px -10px rgba(79, 75, 69, 0.3);
     --accent-light-hover: #3E8A57;
     --accent-light-currentLink: #4d6b57;
-    --color-light-nav: rgba(245, 244, 240, 0.5);
+    --color-light-nav: rgba(245, 244, 240, var(--header-alpha));
     --color-light-nav-hovertext: #FFFFFF;
     --form-bg-light: #FFFFFF;
     --form-input-bg-light: #EAE8E1;
@@ -102,7 +103,7 @@
     --color-blue-hovershadow: 0 0 30px -5px #D62B75;
     --accent-blue-hover: #D62B75;
     --accent-blue-currentLink: #bc5e87;
-    --color-blue-nav: rgba(10, 17, 31, 0.5);
+    --color-blue-nav: rgba(10, 17, 31, var(--header-alpha));
     --color-blue-nav-hovertext: #000;
     --form-bg-blue: rgba(20, 30, 53, 0.5);
     --form-input-bg-blue: #0A111F;
@@ -117,7 +118,7 @@
     --color-bw-hovershadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
     --accent-bw-hover: #000000;
     --accent-bw-currentLink: #4c2f2f;
-    --color-bw-nav: rgba(255, 255, 255, 0.5);
+    --color-bw-nav: rgba(255, 255, 255, var(--header-alpha));
     --color-bw-nav-hovertext: #FFFFFF;
     --form-bg-bw: #FFFFFF;
     --form-input-bg-bw: #E9E9E9;
@@ -143,7 +144,8 @@
 }
 
 html, body { 
-    height: 100%; 
+    min-height: 100%; 
+    height: auto;
 }
 
 body { 
@@ -322,14 +324,22 @@ header {
     padding: 0 2%; 
     margin: auto; 
     background-color: var(--current-nav); 
-    backdrop-filter: blur(12px) saturate(150%); 
-    -webkit-backdrop-filter: blur(12px) saturate(150%); 
+    /*backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%); */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+#header_logo{
+    margin-right: 15px;
+    margin-top: 0px;
+    width: 26px;
+    height: auto;
 }
 
 #main_logo h1 { 
     font-size: 1.8rem; 
     text-transform: uppercase; 
+    display: flex;
 }
 
 #main_logo_tm { 
@@ -351,8 +361,9 @@ header {
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    height: 12vh; 
+    height: 8vh; 
     transition: all var(--transition);
+    font-weight: 600;
 }
 
 #main_nav li a {
@@ -464,7 +475,7 @@ header {
     align-items: center; 
     padding-top: 10vh; 
     padding-bottom: 10vh; 
-    height: 100vh; 
+    max-height: 102vh; 
     background-attachment: fixed; 
     background-size: cover; 
     background-position: center; 
@@ -1323,6 +1334,7 @@ figure.card-style:not(.non-interactive):hover .overlay-text {
     margin-bottom: 2rem; 
     padding: 1rem; 
     font-family: inherit; 
+    box-sizing: border-box;
     font-size: 1rem; 
     background-color: var(--current-form-input-bg); 
     color: var(--current-form-input-text); 
@@ -1335,12 +1347,22 @@ figure.card-style:not(.non-interactive):hover .overlay-text {
 .form-group textarea:focus { 
     outline: none; 
     border-color: var(--current-accent-hover); 
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--current-accent-hover) 25%, transparent); 
+    /* box-shadow: 0 0 0 3px color-mix(in srgb, var(--current-accent-hover) 25%, transparent); */
 }
 
 .form-group textarea { 
     resize: vertical; 
     min-height: 150px; 
+}
+
+#contact-form input:invalid:focus,
+#contact-form textarea:invalid:focus
+{
+    border: 1px solid;
+    box-shadow: 0 0 0 2px #920000 ; 
+    border-color: #920000;
+    box-sizing: border-box;
+
 }
 
 .form-title { 
@@ -1370,6 +1392,11 @@ figure.card-style:not(.non-interactive):hover .overlay-text {
     color: var(--current-accent-hover); 
 }
 
+#contact-form:invalid button[type=submit]:hover { 
+    border-color: #920000;
+    color: #920000  ;
+}
+
 #form-status { 
     padding: 10px; 
     margin-bottom: 15px; 
@@ -1394,7 +1421,7 @@ footer {
     padding: 3rem 2rem; 
     background-color: var(--current-bg-solid); 
     color: var(--current-text); 
-    box-shadow: 0 -3px 5px color-mix(in srgb, var(--current-accent-hover) 20%, transparent); 
+    /*box-shadow: 0 -3px 5px color-mix(in srgb, var(--current-accent-hover) 20%, transparent); */
     border-top: 1px solid var(--current-figure-border); 
     transition: background-color var(--transition-fast), color var(--transition-fast); 
 }
@@ -1482,6 +1509,17 @@ select {
 
 .footer-select { 
     margin-top: 0.5rem; 
+    display: flex;
+}
+
+.footer-select label{
+    width: 80px;
+    padding-top: 5px;
+}
+
+.footer-select select{
+    width: 130px;
+    height: 30px;
 }
 
 .footer-column a.current-page {
@@ -2017,6 +2055,7 @@ body.no-scroll {
     .footer-links a {
         font-size: 1.5rem;
     }
+
     
     .footer-links.is-open {
         max-height: 500px;
