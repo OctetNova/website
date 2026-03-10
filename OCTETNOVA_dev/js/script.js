@@ -131,13 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // DURATION : Durée de l'animation de scroll (en secondes)
         // - Plus la valeur est basse, plus le scroll est rapide
         // - Plus la valeur est haute, plus le scroll est lent et fluide
-        const SCROLL_DURATION = 1.1; // Essayez entre 1.2 (rapide) et 2.5 (très lent)  //ideal:1
+        const SCROLL_DURATION = 0.4; // Essayez entre 1.2 (rapide) et 2.5 (très lent)  //ideal:1
         
         // EASING : Courbe d'animation du scroll
         // - 'easeOutCubic' : Très smooth, décélération progressive (recommandé)
         // - 'easeOutExpo' : Encore plus smooth, décélération très progressive
         // - Custom : Votre propre fonction easing
-        const SCROLL_EASING = (t) => 1 - Math.pow(1 - t, 3); // easeOutCubic
+        const SCROLL_EASING = (t) => 1 - Math.pow(1-t, 3); // easeOutSquare
         
         // WHEEL_MULTIPLIER : Sensibilité de la molette de souris
         // - Plus la valeur est basse, moins le scroll "avance" par tick de molette
@@ -258,12 +258,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerHTML = `
         <header>
             <nav id="main_nav" role="navigation" aria-label="Navigation principale">
-                <div id="main_logo"><h1><a href="index.html">Octetnova <span id="main_logo_tm">™</span> </a></h1></div>
+                <div id="main_logo">
+                <h1>
+                    <svg id="header_logo" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194 242" preserveAspectRatio="xMidYMid meet" role="img" data-i18n-aria-label="altLogo"><g transform="translate(0,242) scale(0.1,-0.1)" fill="currentColor" stroke="none"><path d="M805 2353 c-16 -2 -60 -13 -97 -24 l-67 -20 101 -167 c56 -92 106 -172 112 -179 8 -8 25 -9 61 -2 100 19 210 -19 293 -101 59 -58 92 -124 121 -240 20 -84 41 -301 41 -434 l0 -68 114 -187 c63 -102 142 -233 177 -290 35 -57 69 -104 74 -105 15 -2 52 122 76 249 15 81 22 170 26 335 13 520 -61 800 -267 1010 -117 120 -268 195 -440 220 -64 9 -265 11 -325 3z"/><path d="M435 2189 c-28 -23 -51 -44 -53 -48 -1 -4 97 -176 219 -382 122 -206 250 -421 284 -479 34 -58 190 -321 346 -584 l283 -479 63 67 c35 38 63 72 63 77 0 8 -187 316 -315 519 -40 63 -180 293 -312 510 -214 352 -345 567 -469 769 -22 36 -44 66 -50 68 -5 2 -32 -15 -59 -38z"/><path d="M226 1932 c-96 -189 -136 -407 -136 -737 0 -280 22 -440 82 -597 102 -270 268 -437 503 -507 113 -34 275 -47 407 -33 106 11 242 44 262 62 11 11 -203 372 -218 366 -174 -75 -356 -22 -455 133 -68 105 -110 392 -97 669 l6 143 -151 257 c-84 141 -158 265 -165 276 -11 17 -15 14 -38 -32z"/></g></svg>
+                    <a href="index.html">Octetnova</a>
+                </h1></div>
                 <ul>
                     <li><a href="jeux.html" data-i18n="navGames" ${currentPage === 'jeux.html' ? 'class="current-page"' : ''}></a></li>
                     <li><a href="a_propos.html" data-i18n="navAbout" ${currentPage === 'a_propos.html' ? 'class="current-page"' : ''}></a></li>
                     <li><a href="contact.html" data-i18n="navContact" ${currentPage === 'contact.html' ? 'class="current-page"' : ''}></a></li>
-                    <li><a href="index.html" class="icon-home ${currentPage === 'index.html' ? 'current-page' : ''}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg></a></li>
                 </ul>
                 <button class="burger-menu" data-i18n-aria-label="ariaLabelOpenMenu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
             </nav>
@@ -333,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p class="Version">Version 8.5.1</p>
+                    <p class="Version">Version 4 (8.5.1)</p>
                     <p class="Copyright" data-i18n="copyrightText"></p>
                 </div>
             </div>
@@ -563,6 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const header = document.querySelector('header');
         if (!header) return;
         
+        
         let lastScroll = 0;
         let ticking = false;
 
@@ -788,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const updateContent = () => {
             const i18nAttributes = { 
                 'data-i18n': 'innerHTML', 
-                'placeholder-i18n': 'placeholder', 
+                'data-placeholder-i18n': 'placeholder', 
                 'data-i18n-title': 'title', 
                 'data-i18n-alt': 'alt', 
                 'data-i18n-aria-label': 'aria-label' 
@@ -981,6 +985,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
         if (!form || !formStatus) return;
+
         form.addEventListener('submit', e => {
             e.preventDefault();
             const accessKey1 = "1c16d9b4-9f40-4596-8a6e-546e79ca13e5";
