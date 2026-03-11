@@ -55,7 +55,7 @@
     --header-alpha: 1;
     
     /* Couleurs de fond */
-    --color-dark-bg-solid: #03040B;
+    --color-dark-bg-solid: #101119;
     --color-dark-bg-image: none;
     --color-light-bg-solid: #F5F4F0;
     --color-light-bg-image: none;
@@ -361,7 +361,7 @@ header {
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    height: 8vh; 
+    height: 72px; 
     transition: all var(--transition);
     font-weight: 600;
 }
