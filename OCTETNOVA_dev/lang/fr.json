@@ -13,15 +13,14 @@
     "whatIsOctetnova": "Qu'est-ce qu'Octetnova ?",
     "more": "En savoir plus",
     "gamesTitle": "Nos jeux",
-    "gamesIntro": "Découvrez nos créations originales, conçues avec passion et innovation.",
     "spaceSinking1": "SPACESINKING",
     "spaceSinking2": "SPACESINKING 2",
-    "gamesTitleSpaceSinking1": "SPACESINKING <br> Le début d'une aventure spatiale",
+    "gamesTitleSpaceSinking1": "Spacesinking",
     "gamesDescSpaceSinking1": "Plongez dans l'univers de SPACESINKING, un jeu d'aventure spatiale où vous incarnez un pilote courageux explorant des planètes inconnues.",
-    "gamesTitleSpaceSinking2": "SPACESINKING 2 <br> L'odyssée continue",
+    "gamesTitleSpaceSinking2": "Spacesinking 2",
     "gamesDescSpaceSinking2": "Rejoignez-nous pour la suite épique avec SPACESINKING 2. Poursuivez votre voyage à travers des galaxies lointaines.",
-    "gamesTitleCoC": "Case of Curse <br> Guerrissez les maladies",
-    "gamesDescCoC": "Un nombre anormal de malédictions a commencé à se répandre dans le royaume et en tant qu'assistant d'un magicien, vous devez gérer le cabinet seul car il doit partir aider dans la capitale",
+    "gamesTitleCoC": "Case of Curse",
+    "gamesDescCoC": "Ce jeu à été créé en 1 semaine à l'occasion de la Baudo Autumn Game Jam. Un mal étrange a commencé à se répandre dans Le royaume. Vous êtes un assistant d'un magicien, vous allez être seul pour gérer les malades qui affluent dans votre cabinet... ",
     "learnMoreButton-CoC": "Voir le code",
     "aboutTitle": "À propos d'Octetnova",
     "aboutIntro": "Octetnova est un collectif spécialisé dans la conception de jeux indépendants.",
@@ -208,5 +207,15 @@
     "ariaLabelDiscord": "Rejoignez notre serveur Discord",
     "ariaLabelWebsite": "Visitez notre site web officiel",
     "ariaLabelOpenMenu": "Ouvrir le menu",
-    "ariaLabelCloseMenu": "Fermer le menu"
+    "ariaLabelCloseMenu": "Fermer le menu",
+
+    "carouselText1": "Découvrez Spacesinking 2",
+    "carouselText2": "Découvrez SkyForteress",
+    "carouselText3": "Découvrez Case of Curse",
+    "carouselText4": "Découvrez Spacesinking",
+    "carouselButton1": "Spacesinking 2",
+    "carouselButton2": "Sky Forteress",
+    "carouselButton3": "Case of Curse",
+    "carouselButton4": "Spacesinking"
+
 }

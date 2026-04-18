@@ -112,26 +112,22 @@ includes various sections and elements such as: -->
         <!-- ID pour le lien d'évitement -->
         <main id="main-content">
 
-            <section class="hero animate-on-load">
-                <div class="hero_logos">
-                    <div class="iconetitre">
-                        <svg id="logo-hero" version="1.0" xmlns="http://www.w3.org/2000/svg" width="194pt" height="242pt" viewBox="0 0 194 242" preserveAspectRatio="xMidYMid meet" role="img" data-i18n-aria-label="altLogo"><g transform="translate(0,242) scale(0.1,-0.1)" fill="currentColor" stroke="none"><path d="M805 2353 c-16 -2 -60 -13 -97 -24 l-67 -20 101 -167 c56 -92 106 -172 112 -179 8 -8 25 -9 61 -2 100 19 210 -19 293 -101 59 -58 92 -124 121 -240 20 -84 41 -301 41 -434 l0 -68 114 -187 c63 -102 142 -233 177 -290 35 -57 69 -104 74 -105 15 -2 52 122 76 249 15 81 22 170 26 335 13 520 -61 800 -267 1010 -117 120 -268 195 -440 220 -64 9 -265 11 -325 3z"/><path d="M435 2189 c-28 -23 -51 -44 -53 -48 -1 -4 97 -176 219 -382 122 -206 250 -421 284 -479 34 -58 190 -321 346 -584 l283 -479 63 67 c35 38 63 72 63 77 0 8 -187 316 -315 519 -40 63 -180 293 -312 510 -214 352 -345 567 -469 769 -22 36 -44 66 -50 68 -5 2 -32 -15 -59 -38z"/><path d="M226 1932 c-96 -189 -136 -407 -136 -737 0 -280 22 -440 82 -597 102 -270 268 -437 503 -507 113 -34 275 -47 407 -33 106 11 242 44 262 62 11 11 -203 372 -218 366 -174 -75 -356 -22 -455 133 -68 105 -110 392 -97 669 l6 143 -151 257 c-84 141 -158 265 -165 276 -11 17 -15 14 -38 -32z"/></g></svg>
+            <section class="hero-carousel animate-on-load">
+                <div class="carousel-image">
+                    <div class="carousel-image-text">
+                        <h2>
+                            Découvrez Spacesinking 2
+                        </h2>
+                        <button id="btnJouer" onclick="location.href='jeux.html'" type="button" >Jouer</button>
+                       <button id="btnEnSavoirPlus" onclick="location.href='jeux.html'" type="button" >En Savoir Plus</button>
                     </div>
-                    <div class="hero_space"></div>
-                    <h1 id="hero-title">Octetnova</h1>
                 </div>
-
-                <div class="toBottom_section">
-                    <a href="#startContent" id="scroll-down-indicator" aria-label="Aller vers le contenu principal">
-                        <!-- groupe de 1 flèche -->
-                        <div class="arrows-container">
-                            <svg class="arrow_down" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </div>
-                    </a>
+                <div class="hero-carousel-button">
+                   <button type="button" data-i18n="carouselButton1" id="carousel-btn-selected"> Spacesinking 2</button>
+                   <button type="button" data-i18n="carouselButton2" > Sky Fortress</button>
+                   <button type="button" data-i18n="carouselButton3" > Case of Curse</button>
+                   <button type="button" data-i18n="carouselButton4" > Spacesinking</button>
                 </div>
-                
             </section>
 
             
@@ -139,10 +135,9 @@ includes various sections and elements such as: -->
 
             <section class="games-container fade-in-on-scroll" id="startContent">
                 <h2 class="games-title" data-i18n="gamesTitle"></h2>
-                <p class="games-intro" data-i18n="gamesIntro"></p>
                 <div class="jeux">
-    
-                    <div class="game-item fade-in-on-scroll card-style">
+
+                     <div class="game-item fade-in-on-scroll card-style">
                         <figure>
                             <!-- OPTIMISATION : Balise <picture> pour WebP (+ Lazy Loading) -->
                             <picture>
@@ -161,7 +156,7 @@ includes various sections and elements such as: -->
                         </figure>
                         <!-- Boutons mobiles (cachés sur desktop) -->
                         <div class="mobile-buttons-container">
-                            <a href="https://microstudio.io/Octetnova/caseofcurse/" class="mobile-play-button" aria-label="Jouer à Case Of Curse" data-i18n-title="playButtonTitle" target="_blank" rel="noopener noreferrer">
+                            <a href="https://octetnova.itch.io/case-of-curse" class="mobile-play-button" aria-label="Jouer à Case Of Curse" data-i18n-title="playButtonTitle" target="_blank" rel="noopener noreferrer">
                                 <svg class="play-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img" aria-hidden="true"><path d="M75 50L25 75V25L75 50Z"/></svg>
                             </a>
                             <a href="caseofcurse.html" class="mobile-more-button" aria-label="En savoir plus sur Case Of Curse" title="En savoir plus">?</a>
@@ -171,6 +166,67 @@ includes various sections and elements such as: -->
                             <p data-i18n="gamesDescCoC"></p>
                         </article>
                     </div>
+
+                     <div class="game-item fade-in-on-scroll card-style">
+                        <figure>
+                            <!-- OPTIMISATION : Balise <picture> pour WebP (+ Lazy Loading) -->
+                            <picture>
+                                <source srcset="../img/other/sps2_bg.webp" type="image/webp">
+                                <img src="../img/other/sps2_bg.png" data-i18n-alt="altImageSps2" loading="lazy"> 
+                                <!---->
+                            </picture>
+                            <!-- Overlay desktop (caché sur mobile) -->
+                            <div class="image-overlay">
+                                <a href="https://microstudio.io/Octetnova/spacesinking2" class="overlay-play-button" aria-label="Jouer à Space Sinking 2" data-i18n-title="playButtonTitle" target="_blank" rel="noopener noreferrer">
+                                    <svg class="play-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img" aria-hidden="true"><path d="M75 50L25 75V25L75 50Z"/></svg>
+                                    <span data-i18n="playButton">Jouer</span>
+                                </a>
+                                <a href="spacesinking2.html" class="overlay-more-button" data-i18n="learnMoreButton">En savoir plus</a>
+                            </div>
+                        </figure>
+                        <!-- Boutons mobiles (cachés sur desktop) -->
+                        <div class="mobile-buttons-container">
+                            <a href="https://microstudio.io/Octetnova/spacesinking2" class="mobile-play-button" aria-label="Jouer à Space Sinking 2" data-i18n-title="playButtonTitle" target="_blank" rel="noopener noreferrer">
+                                <svg class="play-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img" aria-hidden="true"><path d="M75 50L25 75V25L75 50Z"/></svg>
+                            </a>
+                            <a href="spacesinking2.html" class="mobile-more-button" aria-label="En savoir plus sur Space Sinking 2" title="En savoir plus">?</a>
+                        </div>
+                        <article class="game-description">
+                            <h2 data-i18n="gamesTitleSpaceSinking2"></h2>
+                            <p data-i18n="gamesDescSpaceSinking2"></p>
+                        </article>
+                    </div>
+                    
+                    <div class="game-item fade-in-on-scroll card-style">
+                        <figure>
+                            <!-- OPTIMISATION : Balise <picture> pour WebP (+ Lazy Loading) -->
+                            <picture>
+                                <source srcset="../img/other/sps1_bg.webp" type="image/webp">
+                                <img src="../img/other/sps1_bg.png" data-i18n-alt="altImageSps1" oading="lazy">
+                                <!--l-->
+                            </picture>
+                            <!-- Overlay desktop (caché sur mobile) -->
+                            <div class="image-overlay">
+                                <a href="https://microstudio.io/Octetnova/spacesinking/" class="overlay-play-button" aria-label="Jouer à Space Sinking 1" data-i18n-title="playButtonTitle" target="_blank" rel="noopener noreferrer">
+                                    <svg class="play-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img" aria-hidden="true"><path d="M75 50L25 75V25L75 50Z"/></svg>
+                                    <span data-i18n="playButton">Jouer</span>
+                                </a>
+                                <a href="spacesinking1.html" class="overlay-more-button" data-i18n="learnMoreButton">En savoir plus</a>
+                            </div>
+                        </figure>
+                        <!-- Boutons mobiles (cachés sur desktop) -->
+                        <div class="mobile-buttons-container">
+                            <a href="https://microstudio.io/Octetnova/spacesinking/" class="mobile-play-button" aria-label="Jouer à Space Sinking 1" data-i18n-title="playButtonTitle" target="_blank" rel="noopener noreferrer">
+                                <svg class="play-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" role="img" aria-hidden="true"><path d="M75 50L25 75V25L75 50Z"/></svg>
+                            </a>
+                            <a href="spacesinking1.html" class="mobile-more-button" aria-label="En savoir plus sur Space Sinking 1" title="En savoir plus">?</a>
+                        </div>
+                        <article class="game-description">
+                            <h2 data-i18n="gamesTitleSpaceSinking1"></h2>
+                            <p data-i18n="gamesDescSpaceSinking1"></p>
+                        </article>
+                    </div>
+
 
                 </div>
             </section>

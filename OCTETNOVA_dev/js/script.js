@@ -52,6 +52,15 @@ let currentTranslations = {};
 let isScrolling = false;
 let lenis;
 
+let currentPageSection = window.location.pathname.split('/').pop() || 'index.html';
+
+// Variable global pour le carousel de l'index
+let carouselInterval;
+let carouselProgression;
+let carouselPage;
+const fps = 144;
+const timeToUpdate = 1000/fps;
+
 /**
  * Détection du support WebP pour optimiser le chargement des images
  * Ajoute la classe 'webp' ou 'no-webp' à la racine du document
@@ -108,6 +117,140 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         registerServiceWorker();
+        initCarouselIndex();
+    }
+
+    function initCarouselIndex() {
+        
+        if(currentPageSection=="index.html"){
+            const btnList = document.querySelectorAll(".hero-carousel-button button");
+
+            for (let i=0;i<4;i++) {
+                btnList[i].addEventListener("click", function() {
+                    changeSelectedButton(i);
+                })
+
+                btnList[i].addEventListener("mouseover", (event) => {
+                    carouselButtonHover(i);
+                })
+
+                btnList[i].addEventListener("mouseleave", (event) => {
+                    carouselButtonReset(i);
+                })
+
+            }
+
+            carouselProgression = 0;
+            carouselPage = 0;
+            carouselInterval = setInterval(updateCarouselIndex,timeToUpdate);
+            changeSelectedButton(0);
+        }
+
+    }
+
+    function carouselButtonHover(i){
+        if(carouselPage!=i){
+            let btnList = document.querySelectorAll(".hero-carousel-button button");
+            btnList[i].style.background = `linear-gradient(to right, var(--current-accent-currentLink) 0%, var(--current-figure-border) 100%)`; //"var(--current-figure-border)";
+        }
+    }
+
+    function carouselButtonReset(i){
+        if(carouselPage!=i){
+            let btnList = document.querySelectorAll(".hero-carousel-button button");
+            btnList[i].style.background = "var(--current-figure-bg)";
+        }
+    }
+
+    function updateCarouselIndex() {
+
+        const totalAnimTime = 5; // in s
+        carouselProgression += 200/(totalAnimTime*fps);
+        
+        
+        if(carouselProgression>100){
+            changeSelectedButton((carouselPage+1)%4);
+        }
+
+        let style = window.getComputedStyle(document.body);
+        let prog_color = style.getPropertyValue('--bar'); 
+        let back_color = style.getPropertyValue('--bar'); 
+
+        let currentButton = document.getElementById("carousel-btn-selected");
+        let currentBg = `linear-gradient(to right, var(--current-accent-currentLink) 0%, var(--current-accent-hover) ${carouselProgression}%, var(--current-figure-bg) ${carouselProgression}%, var(--current-figure-bg) 100%)`;
+        currentButton.style.background = currentBg;
+
+    }
+
+    function changeSelectedButton(to) {
+        const btnList = document.querySelectorAll(".hero-carousel-button button");
+
+        let lastBtn = document.getElementById("carousel-btn-selected");
+        lastBtn.style.background = "var(--current-figure-bg)";
+        lastBtn.id = "";
+
+        carouselPage = to
+        carouselProgression = 0;
+
+        let newBtn = btnList[carouselPage];
+        newBtn.id = "carousel-btn-selected";
+        changeCarouselContent()
+    }
+
+    function changeCarouselContent(){
+        if(currentPageSection=="index.html"){
+            const allContent = [
+                {
+                    img:"../img/other/sps2_bg.png",
+                    buttons:[` <button id="btnJouer" data-i18n="playButton" onclick="location.href='jeux.html'" type="button" ></button>`,
+                        `<button id="btnEnSavoirPlus" data-i18n="more"  onclick="location.href='jeux.html'" type="button" ></button>`]
+                },
+                {
+                    img:"../img/other/jeux_bg.png",
+                    buttons:[`<button id="btnJouer" data-i18n="playButton" onclick="location.href='jeux.html'" type="button" ></button>`]                
+                },
+                {
+                    img:"../img/other/coc_bg.png",
+                    buttons:[` <button id="btnJouer" data-i18n="playButton" onclick="location.href='jeux.html'" type="button" ></button>`,
+                        `<button id="btnEnSavoirPlus" data-i18n="more"  onclick="location.href='jeux.html'" type="button" ></button>`]
+                },
+                {
+                    img:"../img/other/sps1_bg.png",
+                    buttons:[` <button id="btnJouer" data-i18n="playButton" onclick="location.href='jeux.html'" type="button" ></button>`,
+                        `<button id="btnEnSavoirPlus" data-i18n="more" onclick="location.href='jeux.html'" type="button" ></button>`]
+                }
+                
+            ]
+
+            // Change l'image de font
+            const img = document.querySelector(".carousel-image");
+            img.style.backgroundImage = `url('${allContent[carouselPage].img}')`;
+        
+            // Change le texte et les boutons avec la traduction
+            let txt_field = `carouselText${carouselPage+1}`;
+            let txt = currentTranslations[txt_field];
+
+            const image_text = document.querySelector(".carousel-image-text");
+            let toPushInInnerHTML = `<h2 data-i18n="${txt_field}" >${txt}</h2>`;
+
+            // Insère le texte dans le bouton selon son data-i18n
+            let currentButtons = allContent[carouselPage].buttons;
+            currentButtons.forEach(element => {
+                let tag = getAtributeFromStr(element,"data-i18n");
+                let to_insert_at = element.indexOf(">")+1;
+                let to_add =  element.substring(0,to_insert_at)+currentTranslations[tag]+ element.substring(to_insert_at);
+                toPushInInnerHTML += to_add;
+            });
+
+            image_text.innerHTML = toPushInInnerHTML;
+        }
+    }
+
+    function getAtributeFromStr(s,atr){
+        let i = s.lastIndexOf(`${atr}=`)+atr.length+1;
+        let separator = s[i];
+        let atr_value = s.substring(i+1).split(separator)[0];
+        return atr_value;
     }
 
     // =============================================================================

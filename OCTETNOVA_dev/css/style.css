@@ -117,7 +117,7 @@
     --figure-border-color-bw: #ccc;
     --color-bw-hovershadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
     --accent-bw-hover: #000000;
-    --accent-bw-currentLink: #4c2f2f;
+    --accent-bw-currentLink: #4f4f4f;
     --color-bw-nav: rgba(255, 255, 255, var(--header-alpha));
     --color-bw-nav-hovertext: #FFFFFF;
     --form-bg-bw: #FFFFFF;
@@ -361,7 +361,7 @@ header {
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    height: 8vh; 
+    height: 75px; 
     transition: all var(--transition);
     font-weight: 600;
 }
@@ -469,6 +469,109 @@ header {
 }
 
 /* ========== 5. STYLES DES PAGES & SECTIONS GÉNÉRALES ========== */
+
+.hero-carousel{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 4vh; 
+    height: 94vh; 
+}
+
+.carousel-image{
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+
+    background-image: url('../img/other/sps2_bg.png');
+    width: 80vw;
+    height: 75vh;
+    display: flex;
+    border-radius: 10px;
+}
+
+.carousel-image-text{
+    margin-top: 61vh;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0.85) 30%);
+    width: 80vw;
+    padding-top: 2vh;
+    padding-left: 2vw;
+    border-radius: 9px;
+}
+
+.carousel-image-text h2{
+    font-size: 2rem; 
+    margin-bottom: 2vh; 
+    text-transform: uppercase; 
+    color: #FFFFFF; 
+}
+
+.hero-carousel-button{
+    padding-top: 1.5vh;
+    display: inline-block;
+    width: 80vw;
+    padding-left: 2vw;
+}
+
+.hero-carousel-button button{
+    width: 19vw;
+    height: 6vh;
+    background: var(--current-figure-bg);
+    border-radius: 7px;
+    border: 0;
+    display: inline-block;
+    text-align: left;
+    padding-left: 10px;
+    color: var(--current-text);
+    font-family: inherit;
+    font-size: 15px;
+    padding-left: 0.7vw;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero-carousel-button-img{
+    background-size: 6vw;
+    width: 6vw;
+    height: 6vh;
+    margin: 0px;
+
+}
+
+.carousel-image-text button{
+    width: 150px;
+    height: 40px;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 0;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+#btnJouer{
+    background-color: #327bc4;
+}
+
+#btnEnSavoirPlus{
+    background-color: #7c7c7c;
+}
+
+#btnJouer:hover{
+    background-color: #4592de;
+}
+
+#btnEnSavoirPlus:hover{
+    background-color: #989898;
+}
+
+@media (min-width: 769px) {
+
+ /*   ////////////////////       */
+
+}
+
+
 .hero { 
     display: flex; 
     flex-direction: column; 
@@ -656,11 +759,15 @@ html.webp body.bw .hero {
 .about-container { 
     display: flex; 
     flex-direction: column; 
-    text-align: center; 
-    align-items: center; 
+    text-align: left; 
+    align-items: left; 
     padding: 6rem 2rem; 
     margin-bottom: 5vw; 
     background: var(--current-zone-bg); 
+}
+
+.games-title{
+    padding-left: 10vw;
 }
 
 .games-title, 
@@ -671,6 +778,11 @@ html.webp body.bw .hero {
     margin-bottom: 2vh; 
     text-transform: uppercase; 
     color: var(--current-text-herotitle); 
+}
+
+.contact-title,
+.about-title{
+    margin-left: 10vw;
 }
 
 .games-intro, 
@@ -758,6 +870,7 @@ figure.card-style picture {
 .jeux .game-item .game-description h2 {
     margin-bottom: 3.5rem;
     font-size: 1.3rem;
+    text-transform: uppercase;
 }
 
 .jeux .image-overlay { 
@@ -2143,13 +2256,6 @@ body.no-scroll {
         margin-bottom: 1rem !important;
     }
 
-    .games-intro {
-        width: 100% !important;
-        margin: 2rem auto !important;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
     .jeux {
         width: 100%;
         gap: 2.5rem;
@@ -2505,11 +2611,6 @@ body.no-scroll {
 
     .games-title {
         font-size: 1.6rem !important;
-    }
-
-    .games-intro {
-        font-size: 0.8rem;
-        margin: 1.5rem auto !important;
     }
 
     .jeux .game-item figure {
