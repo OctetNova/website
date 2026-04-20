@@ -474,8 +474,8 @@ header {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    padding-top: 4vh; 
-    height: 94vh; 
+    /*padding-top: 4vh;*/
+    height: 100vh; 
 }
 
 .carousel-image{
@@ -484,19 +484,19 @@ header {
     background-repeat: no-repeat;
 
     background-image: url('../img/other/sps2_bg.png');
-    width: 80vw;
-    height: 75vh;
+    width: 100vw;
+    height: 80vh;
     display: flex;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 
 .carousel-image-text{
-    margin-top: 61vh;
+    margin-top: 66vh;
     background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0.85) 30%);
-    width: 80vw;
+    width: 100vw;
     padding-top: 2vh;
     padding-left: 2vw;
-    border-radius: 9px;
+    /*border-radius: 9px;*/
 }
 
 .carousel-image-text h2{
@@ -509,12 +509,12 @@ header {
 .hero-carousel-button{
     padding-top: 1.5vh;
     display: inline-block;
-    width: 80vw;
+    width: 100vw;
     padding-left: 2vw;
 }
 
 .hero-carousel-button button{
-    width: 19vw;
+    width: 24vw;
     height: 6vh;
     background: var(--current-figure-bg);
     border-radius: 7px;
@@ -524,8 +524,8 @@ header {
     padding-left: 10px;
     color: var(--current-text);
     font-family: inherit;
-    font-size: 15px;
-    padding-left: 0.7vw;
+    font-size: 1rem;
+    padding-left: 1vw;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -543,7 +543,7 @@ header {
     height: 40px;
     color: #FFFFFF;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 2px;
     border: 0;
     text-transform: uppercase;
     margin-left: 10px;
@@ -558,11 +558,17 @@ header {
 }
 
 #btnJouer:hover{
-    background-color: #4592de;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #327bc4;
+    border-radius: 2px;
+    color: #327bc4;
 }
 
 #btnEnSavoirPlus:hover{
-    background-color: #989898;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #7c7c7c;
+    border-radius: 2px;
+    color: #ffffff;
 }
 
 @media (min-width: 769px) {

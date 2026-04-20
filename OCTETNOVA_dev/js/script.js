@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCarouselIndex() {
 
-        const totalAnimTime = 5; // in s
+        const totalAnimTime = 7; // in s
         carouselProgression += 200/(totalAnimTime*fps);
         
         
